@@ -1,0 +1,53 @@
+
+.wrapper
+  = render  "header"
+  .top__content
+    .top__content--header
+      %h1
+        人気のカテゴリ
+      .top__content--header--list
+        %ul
+          %li
+            レディース
+          %li
+            メンズ
+          %li
+            家電・スマホ・カメラ
+          %li
+            おもちゃ・ホビー・ホビー・グッズ
+
+    .top__content--main
+      .top__main-box
+        = render partial: "category"
+        .top__main-m1
+          %ul
+            - @items.each do |item|
+              = render partial: "item", locals: { item: item }
+
+
+  .top__content
+    .top__content--header
+      %h1
+        人気のブランド
+      .top__content--header--list
+        %ul
+          %li
+            シャネル
+          %li
+            ルイヴィトン
+          %li
+            シュプリーム
+          %li
+            ナイキ
+
+    .top__content--main
+      .top__main-box
+        = render partial: "category"
+        .top__main-m1
+          %ul
+            - @items.each do |item|
+              = render partial: "item", locals: { item: item }
+
+  = render "shared/new-item"
+  -# フッターを呼び込み
+  = render "footer"

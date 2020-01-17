@@ -1,0 +1,18 @@
+.header
+  = render 'toppage/header'
+.user_page
+  .side_bar
+    = render 'shared/side_bar'
+  .edit-container
+    %section.edit-content
+      .edit-content__head
+        プロフィール
+      .edit-content__top
+        %figure
+          =image_tag 'mako2.jpg'
+        %input(type="text")
+      .edit-content__profile
+        %textarea(name="あああ" cols="30" rows="10" placeholder="例）こんにちは⭐︎ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアルを中心に出品しています。服のサイズは主に９号です。気持ちよくお取引できるよう心がけています心がけていますので、商品や発送方法などご質問ありましたらお気軽にどうぞ")
+        %button
+          変更する
+    

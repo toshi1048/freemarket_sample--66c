@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+ @import 'reset';
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+ @import 'signup';
+ @import 'step';
+ @import 'items';
+ @import 'show';
+ @import 'toppage';
+ @import 'mypages';
+ @import 'identification';
+ @import 'edit';
+ @import 'new-item';
+ @import 'mypage_item';
+ @import 'sell';
+
