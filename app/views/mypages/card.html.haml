@@ -1,0 +1,18 @@
+.header
+  = render  'toppage/header'
+.user_page
+  .side_bar
+    = render  'shared/side_bar'
+  .mypage__sub__content
+    .mypage__sub__content--title
+      支払い方法
+    .mypage__sub__content--inner
+      .card--list
+        クレジットカード一覧
+      -# クレジットカード情報がある時
+      = render 'credit'
+    -# 条件分岐できないためコメントアウトで残します
+    -# クレジットカード情報がない時
+    -# %form.mypage__sub__content--form(action="")
+    -#   %button.mypage__sub__content--form--btn
+    -#     クレジットカードを登録する

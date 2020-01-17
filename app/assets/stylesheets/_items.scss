@@ -1,0 +1,201 @@
+* {
+  margin: 0px;
+}
+.purchase-main{
+  width: 100vw;
+  background-color: rgb(245, 245, 245);
+  
+  .purchase-header{
+    height: 128px;
+    text-align: center;
+    &__block{
+      margin: 0 auto;
+      padding: 40px 0 0;
+    }
+  }
+  
+  .purchase-body{
+    height: 820px;
+    &__list{
+      height: 770px;
+      width: 700px;
+      margin: 0 auto;
+      background-color: white;
+    }
+    
+    &__verification{
+      height: 100px;
+      font-size: 22px;
+      text-align: center;
+      font-weight: bold;
+      line-height: 100px;
+      font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+      border-bottom: 1px solid rgb(245, 245, 245);
+    }
+    
+    &__payment{
+      height: 150px;
+      box-sizing: border-box;
+      border-bottom: 1px solid rgb(245, 245, 245);
+      padding: 30px 0 0 190px;
+      display: flex;
+      &__info{
+        padding-left: 16px;
+        &__brand{
+          font-size: 14px;
+          font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        }
+        &__money{
+          padding-top: 10px;
+          font-size: 13px;
+          font-weight: bold;
+          font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        }
+      }
+    }
+
+    &__total{
+      display: flex;
+      box-sizing: border-box;
+      padding: 35px 180px 0 180px;
+      &__price{
+        font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      &__moeny2{
+        font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        font-size: 25px;
+        padding: 0 0 0 160px;
+        box-sizing: border-box;
+        font-weight: bold;
+      }
+    }
+    &__checkbox{
+      width: 350px;
+      font-size: 15px;
+      box-sizing: border-box;
+      color: gray;
+      padding: 10px 0 30px 2px;
+      border-bottom: solid 1px rgb(245, 245, 245);
+      font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+      margin: 0 auto;
+    }
+    
+    &__total2{
+      width: 350px;
+      height: 110px;
+      border-bottom: solid 1px rgb(245, 245, 245);
+      margin: 0 auto;
+      &__method{
+        font-weight: bold;
+        font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        font-size: 14px;
+        box-sizing: border-box;
+        padding: 30px 0 5px 0;
+      }
+      &__register{
+        font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        color: rgb(71, 192, 240);
+        font-size: 14px;
+        display: flex;
+        &__link{
+          padding-top: 4px;
+          display: flex;
+          &:hover >.purchase-body__total2__register__link__word{
+            border-bottom: solid 1px teal;
+            width: 115px;
+          }
+          &__word{
+            line-height: 18px;
+          }
+        }
+      }
+    }
+    
+    &__delivery{
+      width: 350px;
+      box-sizing: border-box;
+      padding-top: 30px;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+      &__area{
+        font-weight: bold;
+      }
+      &__change{
+        color: rgb(33, 169, 223);
+        box-sizing: border-box;
+        &:hover{
+          color: rgb(141, 204, 230);
+          border-bottom: 1px solid rgb(141, 204, 230);
+        }
+      }
+    }
+    &__address{
+      height: 85px;
+      width: 350px;
+      margin: 0 auto;
+      font-size: 14px;
+      border-bottom: solid 1px rgb(245, 245, 245);
+      font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+      padding-top: 5px;
+    }
+    
+    &__buy{
+      height: 200px;
+      width: 350px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      padding-top: 50px;
+      &__btn{
+        background: #ea352d;
+        text-align: center;
+        width: 100%;
+        font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        color: white;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 48px;
+        }
+      }
+    }
+  }
+  
+  .purchase-footer{
+    text-align: center;
+    height: 200px;
+    padding-top: 100px;
+    &__list{
+      display: flex;
+      justify-content: center;
+      &__message{
+        font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        line-height: 5px;
+        padding: 1px 6px;
+        box-sizing: border-box;
+        font-size: 12px;
+        a{
+          text-decoration: none;
+          color: rgb(51, 51, 51);
+        }
+        &:hover{
+          border-bottom: 1px solid;
+        }
+      }
+    }
+    &__logo{
+      text-decoration: none;
+      color: rgb(51, 51, 51);
+      &__icon{
+        padding-top: 50px;
+      }
+    }
+    &__company{
+      text-align: center;
+      font-size: 13px;
+      font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    }
+  }
