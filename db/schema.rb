@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_17_045137) do
+ActiveRecord::Schema.define(version: 2020_01_17_061417) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zipcode"
@@ -66,15 +66,17 @@ ActiveRecord::Schema.define(version: 2020_01_17_045137) do
     t.string "delivery_method", null: false
     t.string "region", null: false
     t.string "postage"
-    t.integer "saler_id"
-    t.integer "buyer_id"
     t.bigint "category_id"
     t.bigint "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "saler_id"
+    t.bigint "buyer_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name"
+    t.index ["saler_id"], name: "index_items_on_saler_id"
   end
 
   create_table "phone_numbers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -88,24 +90,9 @@ ActiveRecord::Schema.define(version: 2020_01_17_045137) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "nickname"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "first_name_rattle"
-    t.string "last_name_rattle"
-    t.integer "birthyear"
-    t.integer "birthmonth"
-    t.integer "birthday"
-    t.text "introduction"
-    t.text "image"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -115,4 +102,6 @@ ActiveRecord::Schema.define(version: 2020_01_17_045137) do
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "saler_id"
 end
