@@ -1,0 +1,40 @@
+-#header部分
+%header.user-container
+  .user-header
+    %h1.user-header__head
+      = link_to root_path,class: "user-header__head__link" do
+        = image_tag "fmarket_logo_red.svg", alt: "frima"
+    %nav.user-header__nav
+      %ol.user-header__nav__ol
+        %li.through.user-header__nav__ol__progress
+          会員情報
+          .user-header__nav__ol__progress__li
+        %li.through.user-header__nav__ol__progress
+          電話番号認証
+          .user-header__nav__ol__progress__li
+        %li.through.user-header__nav__ol__progress
+          お届け先住所入力
+          .user-header__nav__ol__progress__li
+        %li.through.user-header__nav__ol__progress
+          支払い方法
+          .user-header__nav__ol__progress__li
+        %li.active.user-header__nav__ol__progress
+          完了
+          .user-header__nav__ol__progress__li
+.steppage
+  .MemberInformationInput
+    .MemberInformationInput__title
+      会員登録完了
+    .MemberInformationInput__content
+      .MemberInformationInput__content--form
+        %p.completed__text
+          ありがとうございます。
+        %p.completed__text
+          会員登録が完了しました。
+
+        -# 送信ボタン
+        %button{type: "submit", class: "btn_red"}
+          メルカリをはじめる
+  
+  -# フッターを呼び込み
+  = render "items/subfooter"

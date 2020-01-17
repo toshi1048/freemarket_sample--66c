@@ -1,0 +1,16 @@
+.SignPage
+  .fmarket__logo.center
+    = render 'items/subheader'
+  .NewMemberRegistration
+    .NewMemberRegistration__header
+      新規会員登録
+    .NewMemberRegistration__box
+      = link_to "step1", class: "NewMemberRegistration__box--btn btn--email" do
+        %i.far.fa-envelope
+        メールアドレスで登録する
+      = link_to root_path, class: "NewMemberRegistration__box--btn btn--facebook" do
+        %i.fab.fa-facebook-square
+        Facebookで登録する
+      = link_to root_path, class: "NewMemberRegistration__box--btn btn--gAccount" do
+        Googleで登録する
+  = render "items/subfooter"
