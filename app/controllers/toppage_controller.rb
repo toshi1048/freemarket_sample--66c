@@ -1,8 +1,16 @@
 class ToppageController < ApplicationController
   def index
-    # binding.pry
-    # @items = Category.find(1,2,3,4,5)
-      #  = item.name
+    @ladies      = Item.where(category_id:  1..200).limit(8)
+    @mens        = Item.where(category_id:201..345).limit(8)
+    @kids        = Item.where(category_id:346..480).limit(8)
+    @interior    = Item.where(category_id:481..624).limit(8)
+    @game        = Item.where(category_id:625..684).limit(8)
+    @hobby       = Item.where(category_id:685..797).limit(8)
+    @cosmetics   = Item.where(category_id:798..897).limit(8)
+    @electronics = Item.where(category_id:898..983).limit(8)
+    @sports      = Item.where(category_id:984..1000).limit(8)
+
+    
     # @category_parent_array = ["---"]
     # Category.where(ancestry: nil).each do |parent|
     # @category_parent_array << parent.name
