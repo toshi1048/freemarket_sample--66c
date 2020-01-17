@@ -1,11 +1,16 @@
 class ToppageController < ApplicationController
   def index
+    # binding.pry
+    @items = Category.find(1,2,3,4,5)
+      #  = item.name
     # @category_parent_array = ["---"]
     # Category.where(ancestry: nil).each do |parent|
     # @category_parent_array << parent.name
   #  Category.where(ancestry: nil).each do |item|
     # @item = item.name
-   end
+  #  end
+  # @items = Item.all
+  end
 
 
 
