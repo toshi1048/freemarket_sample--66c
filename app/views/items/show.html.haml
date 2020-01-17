@@ -1,0 +1,211 @@
+= render 'toppage/header'
+%section.item-container
+  .item-name
+    イチゴ大福
+  .item-content.clearfix
+    .item-content__photo
+      .item-content__photo--top
+        =image_tag "mochi.jpg"
+      .item-content__photo--bottom
+        = 10.times do
+          = render partial: 'picture'
+    %table.item-content__table
+      %tr
+        %th
+          出品者
+        %td
+          =link_to do
+            ユーザー
+          .rating
+            .rating__counts
+              %i.far.fa-laugh
+              .rating__counts--good
+                1
+            .rating__counts
+              %i.far.fa-meh
+              .rating__counts--normal
+                1
+            .rating__counts
+              %i.far.fa-frown
+              .rating__counts--bad
+                1
+      %tr
+        %th
+          カテゴリー
+        %td
+          =link_to do
+            %div
+              食べ物
+          =link_to do
+            %div
+              ＞スイーツ
+          =link_to do
+            %div
+              ＞和菓子
+      %tr
+        %th
+          ブランド
+        %td
+          =link_to do
+            フェンディ
+      %tr
+        %th
+          商品の状態
+        %td
+          やや傷や汚れあり
+      %tr
+        %th
+          配送料の負担
+        %td
+          送料込み（出品者負担）
+      %tr
+        %th
+          配送の方法
+        %td
+          ゆうゆうメルカリ便
+      %tr
+        %th
+          発送元地域
+        %td
+          =link_to do
+            長崎県
+      %tr
+        %th
+          発送日の目安
+        %td
+          1~2日で発送
+  .item-price 
+    %span.item-price--yen
+      ¥7,880
+    %span.item-price--tax
+      (税込)
+    %span.item-price--fee
+      送料込み
+  = link_to '購入画面に進む', 'http://www.google.co.jp/',class: "buy-btn"
+  .item-description
+    ご覧いただきありがとうございます(^^♪
+
+    クリスチャン ディオール イヤリング の中古美品です♪
+
+    メルカリ便にて全国送料無料！
+    即ご購入大歓迎です♪
+    （写真撮影、梱包の際は白手袋着用の上、丁寧に取り扱いしております♪）
+
+    【商品状態】
+    目立った傷は無く美品です。
+
+    【カラー】
+    ゴールド系
+
+
+    【商品サイズ】
+    縦:3×横:2（㎝）
+    ※素人採寸です。
+
+    【商品の特徴】
+    大振りでゴージャスなイヤリング です♪
+    程度はかなり美品です！
+    できるだけ画像に詳細写しておりますのでご確認ください。
+    ★画像に写してあるものが、全ての出品物となります！
+
+
+    【商品購入元】
+    エコリング
+    （正規品、鑑定済みです。）
+
+    【ご注意事項】
+    あくまで中古品になりますため、画像に写せていない箇所にも、多少の擦れ、小傷などある場合がございます。
+    あらかじめご理解ご了承ください。
+    （万一、画像、説明文とあきらかな見落としがある場合は必ずきちんとご対応させていただきます。その点はご安心ください。）
+
+
+    きのぴこの他のアクセサリーはこちら
+  .item-buttons.clearfix
+    .item-buttons--left
+      %button.item-btn
+        %i.far.fa-heart
+        %span
+          いいね!
+        %span
+          3
+      =link_to class: "item-btn report" do
+        %i.far.fa-flag
+        %span 不適切な内容の報告
+    .item-buttons--right
+      =link_to do
+        %i.fas.fa-lock
+        %span あんしん・あんぜんへの取り組み
+
+
+.item-comments
+  .item-comments__content
+    .item-comments__content__form.clearfix
+      %ul
+        %li
+          =link_to do
+            %figure
+              %div
+                = image_tag "mako2.jpg"
+              %figcaption
+                真子
+          .message
+            .message__text
+              購入します。
+            .message__time
+              %time
+                %i.far.fa-clock
+                %span
+                  2時間前
+              %i.far.fa-flag
+    .item-comments__content__form
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %textarea.item-comments__content__form--box
+      %button.submit
+        %span コメントする
+
+
+.move-link.clearfix
+  = link_to '前の商品', 'http://www.google.co.jp/',class: "move-link--prev"
+  = link_to '次の商品', 'http://www.google.co.jp/',class: "move-link--next"
+
+
+.sns-list
+  .sns-list--boxes
+    %li
+      = link_to "https://www.facebook.com/", class: "contents__btn" do
+        %i.fab.fa-facebook-square
+    %li
+      = link_to "https://www.twitter.com/", class: "contents__btn" do
+        %i.fab.fa-twitter
+    %li
+      = link_to "https://www.line.com/", class: "contents__btn" do
+        %i.fab.fa-line
+    %li
+      = link_to "https://www.pinterest.com/", class: "contents__btn" do
+        %i.fab.fa-pinterest
+
+.recommends
+  .recommends__user
+    .recommends__user__head
+      =link_to "#" do
+        hogehogeさんのその他の出品
+    .recommends__user__items
+      = 6.times do
+        = render partial: 'elseitems'
+  .recommends__user
+    .recommends__user__head
+      =link_to "#" do
+        シャネルのその他の商品
+    .recommends__user__items
+      = 6.times do
+        = render partial: 'elseitems'
+    .recommends__categories__items
+.bread-crumbs
+  %ul.bread-crumbs__box
+    %li
+      =link_to 'メルカリ'
+      %i.fas.fa-chevron-right
+    %li
+      =link_to 'イチゴ大福６個入り'
+
+= render 'toppage/footer'
