@@ -1,7 +1,7 @@
 = render 'toppage/header'
 %section.item-container
   .item-name
-    イチゴ大福
+    = @item.name
   .item-content.clearfix
     .item-content__photo
       .item-content__photo--top
@@ -15,7 +15,7 @@
           出品者
         %td
           =link_to do
-            ユーザー
+            = @user.nickname
           .rating
             .rating__counts
               %i.far.fa-laugh
@@ -47,33 +47,33 @@
           ブランド
         %td
           =link_to do
-            フェンディ
+            =@brand.name
       %tr
         %th
           商品の状態
         %td
-          やや傷や汚れあり
+          = @item.condition
       %tr
         %th
           配送料の負担
         %td
-          送料込み（出品者負担）
+          = @item.postage
       %tr
         %th
           配送の方法
         %td
-          ゆうゆうメルカリ便
+          = @item.delivery_method
       %tr
         %th
           発送元地域
         %td
           =link_to do
-            長崎県
+            =@item.region
       %tr
         %th
           発送日の目安
         %td
-          1~2日で発送
+          = @item.shipping_date
   .item-price 
     %span.item-price--yen
       ¥7,880

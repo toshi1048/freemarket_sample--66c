@@ -1,5 +1,6 @@
 class ToppageController < ApplicationController
   def index
+    @items  = Item.all
     # @category_parent_array = ["---"]
     # Category.where(ancestry: nil).each do |parent|
     # @category_parent_array << parent.name
