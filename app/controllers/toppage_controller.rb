@@ -1,7 +1,7 @@
 class ToppageController < ApplicationController
   def index
     # binding.pry
-    @items = Category.find(1,2,3,4,5)
+    # @items = Category.find(1,2,3,4,5)
       #  = item.name
     # @category_parent_array = ["---"]
     # Category.where(ancestry: nil).each do |parent|
