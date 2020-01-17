@@ -1,0 +1,19 @@
+.new-item{
+  width: 160px;
+  height: 128px;
+  padding-top: 32px;
+  background-color: #EA352D;
+  display: block;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  position: fixed;
+  bottom: 35px;
+  right: 25px;
+  &--head{
+    font-size: 22px;
+  }
+  .fa-camera{
+    font-size: 60px;
+  }
+}
