@@ -1,0 +1,22 @@
+%h2 カード情報登録
+= form_for @card do |f|
+  = render "devise/shared/error_messages", resource: @card
+  .field
+    = f.label :card_number
+    %br/
+    = f.text_field :card_number
+  .field
+    = f.label :year
+    %br/
+    = f.text_field :year
+  .field
+    = f.label :momth
+    %br/
+    = f.text_field :momth
+  .field
+    = f.label :security_number
+    %br/
+    = f.text_field :security_number
+  .actions
+    = f.submit "Sign up"
+= render "devise/shared/links"

@@ -1,0 +1,76 @@
+-#header部分
+%header.user-container
+  .user-header
+    %h1.user-header__head
+      = link_to root_path,class: "user-header__head__link" do
+        = image_tag "fmarket_logo_red.svg", alt: "frima"
+    %nav.user-header__nav
+      %ol.user-header__nav__ol
+        %li.through.user-header__nav__ol__progress
+          会員情報
+          .user-header__nav__ol__progress__li
+        %li.through.user-header__nav__ol__progress
+          電話番号認証
+          .user-header__nav__ol__progress__li
+        %li.through.user-header__nav__ol__progress
+          お届け先住所入力
+          .user-header__nav__ol__progress__li
+        %li.active.user-header__nav__ol__progress
+          支払い方法
+          .user-header__nav__ol__progress__li
+        %li.user-header__nav__ol__progress
+          完了
+          .user-header__nav__ol__progress__li
+-# クレジットカード入力フォーム
+.steppage
+  .MemberInformationInput
+    .MemberInformationInput__title
+      住所入力
+    .MemberInformationInput__content
+      .MemberInformationInput__content--form
+        %form{action: "#", method: "post"}
+          .form_group
+            %label
+              カード番号
+            %span.form_require
+              必須
+            %br/
+            %input.input_default{name: "card_number", type: "number", placeholder: "半角数字のみ"}
+
+          -# クレジットカード有効期限
+          -# 内部実装してないため使えません。実装後こちら使用
+          -# != sprintf(f.date_select(:expiration_date,with_css_classes:'XXXXX', order:[:month,:year,:day], use_month_numbers:true, discard_day:true, start_year:Time.now.year-2000, end_year:Time.now.year-2000+10, date_separator:'%s'),'月') + '年'
+          .form_group
+            %label
+              有効期限
+            %span.form_require
+              必須
+            %div
+          
+
+          -# %input{:name => "name", :type => "number", :class => "input_default  input_default--harf", :placeholder => "半角数字のみ"}/
+          -# 内部実装してないため使えません。実装後こちら使用
+          -# != sprintf(f.date_select(:expiration_date,with_css_classes:'XXXXX', order:[:month,:year,:day], use_month_numbers:true, discard_day:true, start_year:Time.now.year-2000, end_year:Time.now.year-2000+10, date_separator:'%s'),'月') + '年'
+          %select#select_month{name: "month"}
+          %span
+            月
+          %br
+          %select#select_year{name: "year"}
+          %span
+            年
+          
+
+          .form_group
+          %label
+            セキュリティコード
+          %span.form_require
+            必須
+          %br/
+          %input{name: "security_number", type: "number", class: "input_default", placeholder: "カード背面4桁もしくは3桁の番号"}
+
+          -# 送信ボタン
+          %button{type: "submit", class: "btn_red"}
+            次へ進む
+  
+  -# フッターを呼び込み
+  = render "items/subfooter"
