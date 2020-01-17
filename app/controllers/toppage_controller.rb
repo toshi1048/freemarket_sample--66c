@@ -3,8 +3,8 @@ class ToppageController < ApplicationController
     # @category_parent_array = ["---"]
     # Category.where(ancestry: nil).each do |parent|
     # @category_parent_array << parent.name
-   Category.where(ancestry: nil).each do |item|
-    @item = item.name
+  #  Category.where(ancestry: nil).each do |item|
+    # @item = item.name
    end
 
 
@@ -30,7 +30,7 @@ class ToppageController < ApplicationController
     # @tempitems9 = Product.where(id: @tempitems8.map{ |item| item.id })
     # @products3 = @tempitems9.order("created_at DESC").first(4)
 
-  end
+  # end
 
   def show
   end
