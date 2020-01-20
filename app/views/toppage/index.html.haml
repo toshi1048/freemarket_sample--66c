@@ -25,6 +25,43 @@
               = render partial: "item", locals: { item: item }
 
   .top__content
+    .top__content--main
+      .top__main-box
+        .top__main-h1
+          %h2
+            メンズ新着アイテム
+          %h3
+            もっと見る
+            %i.fa.fa-chevron-right
+        .top__main-m1
+          %ul
+            - @mens.each do |item|
+              = render partial: "item", locals: { item: item }
+
+    .top__content--main
+      .top__main-box
+        .top__main-h1
+          %h2
+            家電・スマホ・カメラ新着アイテム
+          %h3
+            もっと見る
+            %i.fa.fa-chevron-right
+        .top__main-m1
+          %ul
+            - @cosmetics.each do |item|
+              = render partial: "item", locals: { item: item }
+    .top__content--main
+      .top__main-box
+        .top__main-h1
+          %h2
+            おもちゃ・ホビー・グッズ新着アイテム
+          %h3
+            もっと見る
+            %i.fa.fa-chevron-right
+        .top__main-m1
+          %ul
+            - @hobby.each do |item|
+              = render partial: "item", locals: { item: item }
     .top__content--header
       %h1
         人気のブランド
