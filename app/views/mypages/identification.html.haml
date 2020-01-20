@@ -1,5 +1,7 @@
 .header
   = render 'toppage/header'
+  - breadcrumb :identification
+  = render "layouts/breadcrumbs"
 .page_main
   =render 'shared/side_bar'
   .page_main_content
@@ -66,7 +68,7 @@
           .identification__main__prefecture_box__any
             任意
           %select.address_input
-            - @address.each do |address| 
+            -# - @address.each do |address| 
               %option{:value=> ""}
                 = address.name 
 

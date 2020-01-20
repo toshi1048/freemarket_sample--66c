@@ -1,5 +1,7 @@
 .header
   = render  'toppage/header'
+  - breadcrumb :card
+  = render "layouts/breadcrumbs"
 .user_page
   .side_bar
     = render  'shared/side_bar'

@@ -52,7 +52,6 @@
           %ul
             - @cosmetics.each do |item|
               = render partial: "item", locals: { item: item }
-
     .top__content--main
       .top__main-box
         .top__main-h1
@@ -132,7 +131,6 @@
           %ul
             - @nike.each do |item|
               = render partial: "item", locals: { item: item }
-
   = render "shared/new-item"
   -# フッターを呼び込み
   = render "footer"

@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       get 'card'
       get 'signout'
       get 'identification'
+      get 'edit'
     end
   end
   resources :items,only:[:index,:new,:create,:show]
