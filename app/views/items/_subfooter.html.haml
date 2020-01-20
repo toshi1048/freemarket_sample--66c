@@ -1,0 +1,12 @@
+.purchase-footer
+  .purchase-footer__list
+    .purchase-footer__list__message
+      = link_to 'プライバシーポリシー',''
+    .purchase-footer__list__message
+      = link_to 'メルカリ利用規約',''
+    .purchase-footer__list__message
+      = link_to '特定取引に関する表記',''
+  .purchase-footer__company
+  = link_to '#', class: "purchase-footer__logo" do
+    = image_tag "logo_gray.svg", size: "200x90", class: "purchase-footer__logo__icon"
+    %p© Fmarket, Inc.
