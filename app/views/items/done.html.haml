@@ -1,0 +1,34 @@
+.purchase-main
+  .purchase-header
+    .purchase-header__block
+      = render "items/subheader"
+  .buy-item
+    .buy-item__body
+      .buy-item__alert
+        .buy-item__alert__top
+          .buy-item__alert__top__text
+            発送をお待ちください
+        .buy-item__alert__bottom
+          出品者からの発送通知をお待ちください
+          .buy-item__centerbox
+      .buy-item__centerbox__head
+        購入が完了しました
+      .buy-item__centerbox__item
+        .buy-item__centerbox__item__bx
+          .buy-item__centerbox__item__bx__image
+            = image_tag "fuku.jpg", size: "80x80"
+          .buy-item__centerbox__item__bx__bbx
+            .buy-item__centerbox__item__bx__name
+              商品の名前
+            .buy-item__centerbox__item__bx__name__detail
+              ¥1,111（税込）送料込み
+      .buy-item__centerbox__info
+        .buy-item__centerbox__info__price
+          .buy-item__centerbox__info__price__detail
+            支払い金額
+          .buy-item__centerbox__info__price__price
+            ¥1,111
+        .buy-item__centerbox__info__submit
+          = link_to "トップページへ戻る", root_path, class: 'buy__centerbox__info__submit__button'
+  .single-footer
+    = render "items/subfooter"
