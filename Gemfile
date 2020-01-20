@@ -87,3 +87,6 @@ gem 'active_hash'
 gem 'erb2haml'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem "gretel"
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
