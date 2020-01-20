@@ -18,3 +18,4 @@ private
   def item_params
     params.require(:item).permit(:name, :price, :shipping_date, :condition, :delivery_method, :region, :postage).merge(seller_id: current_user.id)
   end
+end

@@ -1,10 +1,8 @@
-
 .wrapper
   = render  "header"
   .top__content
     .top__content--header
       %h1
-        人気のカテゴリ
       .top__content--header--list
         %ul
           %li
@@ -18,13 +16,17 @@
 
     .top__content--main
       .top__main-box
-        = render partial: "category"
+        .top__main-h1
+          %h2
+            レディース新着アイテム
+          %h3
+            もっと見る
+            %i.fa.fa-chevron-right
         .top__main-m1
           %ul
             - @ladies.each do |item|
               = render partial: "item", locals: { item: item }
 
-  .top__content
     .top__content--main
       .top__main-box
         .top__main-h1
@@ -62,6 +64,8 @@
           %ul
             - @hobby.each do |item|
               = render partial: "item", locals: { item: item }
+
+    .top__content
     .top__content--header
       %h1
         人気のブランド
@@ -78,10 +82,54 @@
 
     .top__content--main
       .top__main-box
-        = render partial: "category"
+        .top__main-h1
+          %h2
+            シャネル新着アイテム
+          %h3
+            もっと見る
+            %i.fa.fa-chevron-right
         .top__main-m1
           %ul
-             - @nike.each do |item|
+            - @chanel.each do |item|
+              = render partial: "item", locals: { item: item }
+
+    .top__content--main
+      .top__main-box
+        .top__main-h1
+          %h2
+            ルイヴィトン新着アイテム
+          %h3
+            もっと見る
+            %i.fa.fa-chevron-right
+        .top__main-m1
+          %ul
+            - @louis_vuitton.each do |item|
+              = render partial: "item", locals: { item: item }
+
+    .top__content--main
+      .top__main-box
+        .top__main-h1
+          %h2
+            シュプリーム新着アイテム
+          %h3
+            もっと見る
+            %i.fa.fa-chevron-right
+        .top__main-m1
+          %ul
+            - @supreme.each do |item|
+              = render partial: "item", locals: { item: item }
+
+    .top__content--main
+      .top__main-box
+        .top__main-h1
+          %h2
+            ナイキ新着アイテム
+          %h3
+            もっと見る
+            %i.fa.fa-chevron-right
+        .top__main-m1
+          %ul
+            - @nike.each do |item|
               = render partial: "item", locals: { item: item }
   = render "shared/new-item"
   -# フッターを呼び込み
