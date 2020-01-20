@@ -5,7 +5,7 @@
     .NewMemberRegistration__header
       新規会員登録
     .NewMemberRegistration__box
-      = link_to "step1", class: "NewMemberRegistration__box--btn btn--email" do
+      = link_to new_user_registration_path, class: "NewMemberRegistration__box--btn btn--email" do
         %i.far.fa-envelope
         メールアドレスで登録する
       = link_to user_facebook_omniauth_authorize_path, method: :post, class: "NewMemberRegistration__box--btn btn--facebook" do
