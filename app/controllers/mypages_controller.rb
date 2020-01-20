@@ -3,7 +3,7 @@ class MypagesController < ApplicationController
   end
 
   def identification
-    # @address = Prefecture.all
+    @address = Prefecture.all
   end
 
   def edit
