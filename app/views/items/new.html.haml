@@ -54,9 +54,9 @@
               = f.collection_select :category_id, @category_parent_array,:id,:name,{prompt: "---"},{class: 'sell__item-categry', id: 'parent_category'}
             .sell__line
               %h3
-                商品の状態
+                ブランド
               %span
-                必須
+                任意
             =f.select :brand_id,[["シャネル",1], ["グッチ",2],  ["エルメス",3] ], prompt: "---",class: "sell__item-old"
             .sell__line
               %h3
