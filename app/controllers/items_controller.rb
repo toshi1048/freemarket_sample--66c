@@ -1,7 +1,5 @@
 class ItemsController < ApplicationController
   before_action :set_category, only: [:new, :create]
-  before_action :get_category_children only: [:new]
-  before_action :get_category_grandchildren only:[:new]
 
   def index
   end
@@ -9,7 +7,14 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    
+
+    def get_category_children
+      @category_children = Category.find_by("#{params[:parent_name]}", ancestry: nil).children
+    end
+  
+    def get_category_grandchildren
+      @category_grandchildren = Category.find("#{params[:child_id]}").children
+    end
 
   end
 
@@ -38,11 +43,5 @@ private
   end
   end
 
-  def get_category_children
-    @category_children = Category.find_by("#{params[:parent_name]}", ancestry: nil).children
-  end
 
-  def get_category_grandchildren
-    @category_grandchildren = Category.find("#{params[:child_id]}").children
-  end
 end
