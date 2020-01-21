@@ -1,26 +1,97 @@
-%h2 住所情報登録
-= form_for @address do |f|
-  = render "devise/shared/error_messages", resource: @address
-  .field
-    = f.label :zipcode
-    %br/
-    = f.text_field :zipcode
-  .field
-    = f.label :prefecture
-    %br/
-    = f.text_field :prefecture
-  .field
-    = f.label :first_address
-    %br/
-    = f.text_field :first_address
-  .field
-    = f.label :second_address
-    %br/
-    = f.text_field :second_address
-  .field
-    = f.label :third_address
-    %br/
-    = f.text_field :third_address
-  .actions
-    = f.submit "Next"
-= render "devise/shared/links"
+-#header部分
+%header.user-container
+  .user-header
+    %h1.user-header__head
+      = link_to root_path,class: "user-header__head__link" do
+        = image_tag "fmarket_logo_red.svg", alt: "frima"
+    %nav.user-header__nav
+      %ol.user-header__nav__ol
+        %li.through.user-header__nav__ol__progress
+          会員情報
+          .user-header__nav__ol__progress__li
+        %li.through.user-header__nav__ol__progress
+          電話番号認証
+          .user-header__nav__ol__progress__li
+        %li.through.user-header__nav__ol__progress
+          お届け先住所入力
+          .user-header__nav__ol__progress__li
+        %li.active.user-header__nav__ol__progress
+          支払い方法
+          .user-header__nav__ol__progress__li
+        %li.user-header__nav__ol__progress
+          完了
+          .user-header__nav__ol__progress__li
+-# 住所、電話番号入力フォーム
+  .user-header
+    %h1.user-header__head
+      = link_to root_path,class: "user-header__head__link" do
+        = image_tag "fmarket_logo_red.svg", alt: "frima"
+    %nav.user-header__nav
+      %ol.user-header__nav__ol
+        %li.through.user-header__nav__ol__progress
+          会員情報
+          .user-header__nav__ol__progress__li
+        %li.through.user-header__nav__ol__progress
+          電話番号認証
+          .user-header__nav__ol__progress__li
+        %li.active.user-header__nav__ol__progress
+          お届け先住所入力
+          .user-header__nav__ol__progress__li
+        %li.user-header__nav__ol__progress
+          支払い方法
+          .user-header__nav__ol__progress__li
+        %li.user-header__nav__ol__progress
+          完了
+          .user-header__nav__ol__progress__li
+
+
+
+.steppage
+  .MemberInformationInput
+    .MemberInformationInput__title
+      住所入力
+    .MemberInformationInput__content
+      .MemberInformationInput__content--form
+        = form_for @address do |f|
+          = render "devise/shared/error_messages", resource: @address
+          .field
+            = f.label :郵便番号
+            %span.form_require
+              必須
+            %br/
+            = f.text_field :zipcode, placeholder: "郵便番号", class: "input_default"
+
+          .field
+            = f.label :都道府県
+            %span.form_require
+              必須
+            %br/
+            = f.text_field :prefecture, placeholder: "北海道", class: "input_default"
+          
+          .field
+            = f.label :市区町村
+            %span.form_require
+              必須
+            %br/
+            = f.text_field :first_address, placeholder: "例) 横浜市緑区", class: "input_default"
+          
+          .field
+            = f.label :番地
+            %span.form_require
+              必須
+            %br/
+            = f.text_field :second_address, placeholder: "例) 青山1-1-1", class: "input_default"
+
+            .field
+            = f.label :建物名
+            %span.form_require
+              必須
+            %br/
+            = f.text_field :third_address, placeholder: "例) 柳ビル103", class: "input_default"
+          .actions
+            = f.submit "次に進む", class: "btn_red"
+
+
+  -# フッターを呼び込み
+  = render "items/subfooter"
+
