@@ -42,26 +42,29 @@
               必須
             %br/
             = f.text_field :nickname, placeholder: "例) メルカリ太郎", class: "input_default"
-          -# メールアドレス
-          .field
+            -# メールアドレス
+            .field
             = f.label :メールアドレス
             %span.form_require
               必須
             %br/
             = f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"PC・携帯どちらでも可", class: "input_default"
-                       
+            
           -# パスワード入力
-          .field
-            = f.label :パスワード
-            %span.form_require
-              必須
-            %br/
-            = f.password_field :password, autofocus: true, autocomplete: "password", placeholder: "7文字以上の半角英数字", class: "input_default"
-            %p.form_info
-              ※ 英字と数字の両方を含めて設定してください
-            %input#password-check{type: "checkbox"}
-            %span
-              パスワードを表示する
+          - if @sns_id.present?
+            = hidden_field_tag :sns_auth, true
+          - else
+            .field
+              = f.label :パスワード
+              %span.form_require
+                必須
+              %br/
+              = f.password_field :password, autofocus: true, autocomplete: "password", placeholder: "7文字以上の半角英数字", class: "input_default"
+              %p.form_info
+                ※ 英字と数字の両方を含めて設定してください
+              %input#password-check{type: "checkbox"}
+              %span
+                パスワードを表示する
           .Identification
             本人確認
           .Identification--text
