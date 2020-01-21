@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :signup, only:[:index]
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
@@ -23,6 +22,7 @@ Rails.application.routes.draw do
   #     get 'done'
   #   end
   # end
+  resources :signup,only:[:index]
   resources :mypages,only:[:index,:edit] do
     collection do
       get 'card'
