@@ -142,23 +142,20 @@
 
   .items_line
   -# ログインしている＆かつ自分の商品の場合のみ表示させる
-  .items__box
-    .items__box--btn
-      .items__red
-        = link_to '編集', edit_item_path
-        -# (@items.id)
-      .items__or
-        or
-      .items__gray
-        = link_to '削除', edit_item_path
+  -# .items__box
+  -#   .items__box--btn
+  -#     .items__red
+  -#       = link_to '編集', edit_item_path
+  -#       -# (@items.id)
+  -#     .items__or
+  -#       or
+  -#     .items__gray
+  -#       = link_to '削除', edit_item_path
 
-
-        -# %if user_signed_in? && current_user.id == @post.user_id %>
-        -#   .items_box
-        -#     = link_to "編集", edit_item_path(@items.id), class: "items__red"
-        -#     = link_to "削除", post_path(@items.id), method: :delete, class: "items__gray"
-        -# end
-
+  - if.user_signed_in? && current_user.id == @items.user_id
+    .items_box
+      = link_to "編集", edit_item_path(@items.id), class: "items__red"
+      = link_to "削除", item_path(@items.id), method: :delete, class: "items__gray"
 
 .item-comments
   .item-comments__content
