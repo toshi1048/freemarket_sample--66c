@@ -95,5 +95,5 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 gem 'payjp'
-gem 'dotenv-rails'
 gem "jquery-rails"
+gem 'dotenv'
