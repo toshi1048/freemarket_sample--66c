@@ -1,22 +1,87 @@
-%h2 カード情報登録
-= form_for @card do |f|
-  = render "devise/shared/error_messages", resource: @card
-  .field
-    = f.label :card_number
-    %br/
-    = f.text_field :card_number
-  .field
-    = f.label :year
-    %br/
-    = f.text_field :year
-  .field
-    = f.label :momth
-    %br/
-    = f.text_field :momth
-  .field
-    = f.label :security_number
-    %br/
-    = f.text_field :security_number
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+-#header部分
+%header.user-container
+  .user-header
+    %h1.user-header__head
+      = link_to root_path,class: "user-header__head__link" do
+        = image_tag "fmarket_logo_red.svg", alt: "frima"
+    %nav.user-header__nav
+      %ol.user-header__nav__ol
+        %li.through.user-header__nav__ol__progress
+          会員情報
+          .user-header__nav__ol__progress__li
+        %li.through.user-header__nav__ol__progress
+          電話番号認証
+          .user-header__nav__ol__progress__li
+        %li.through.user-header__nav__ol__progress
+          お届け先住所入力
+          .user-header__nav__ol__progress__li
+        %li.active.user-header__nav__ol__progress
+          支払い方法
+          .user-header__nav__ol__progress__li
+        %li.user-header__nav__ol__progress
+          完了
+          .user-header__nav__ol__progress__li
+-# クレジットカード入力フォーム
+.steppage
+  .MemberInformationInput
+    .MemberInformationInput__title
+      支払い方法
+    .MemberInformationInput__content
+      .MemberInformationInput__content--form
+        = form_for @card do |f|
+          = render "devise/shared/error_messages", resource: @card
+          .field
+            = f.label :カード番号
+            %span.form_require
+              必須
+            %br/
+            = f.text_field :card_number, placeholder: "半角数字のみ", class: "input_default"
+
+          %label
+            有効期限
+          %span.form_require
+            必須
+          %br/
+          = f.select :year, :type =>"text", placeholder:"" do
+            %option{:value => ''} --
+            %option{:value => '1'} 1
+            %option{:value => '2'} 2
+            %option{:value => '3'} 3
+            %option{:value => '4'} 4
+            %option{:value => '5'} 5
+            %option{:value => '6'} 6
+            %option{:value => '7'} 7
+            %option{:value => '8'} 8
+            %option{:value => '9'} 9
+            %option{:value => '10'} 10
+            %option{:value => '11'} 11
+            %option{:value => '12'} 12
+          月
+          = f.select :momth, :type =>"text", placeholder:"" do
+            %option{:value => ''} --
+            %option{:value => '1'} 1
+            %option{:value => '2'} 2
+            %option{:value => '3'} 3
+            %option{:value => '4'} 4
+            %option{:value => '5'} 5
+            %option{:value => '6'} 6
+            %option{:value => '7'} 7
+            %option{:value => '8'} 8
+            %option{:value => '9'} 9
+            %option{:value => '10'} 10
+            %option{:value => '11'} 11
+            %option{:value => '12'} 12
+          月
+
+          .field
+            = f.label :セキュリティコード
+            %span.form_require
+              必須
+            %br/
+            = f.text_field :security_number, placeholder: "カード背面4桁もしくは3桁の番号", class: "input_default"
+          .actions
+            = f.submit "次へ進む", class: "btn_red"
+  -# フッターを呼び込み
+  = render "items/subfooter"
+
+
