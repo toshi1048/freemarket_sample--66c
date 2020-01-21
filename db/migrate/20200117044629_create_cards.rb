@@ -6,7 +6,7 @@ class CreateCards < ActiveRecord::Migration[5.2]
       t.integer    :momth
       t.integer    :security_number
       t.references :user
-
+      
       t.timestamps
     end
   end
