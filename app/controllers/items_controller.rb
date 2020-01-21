@@ -13,17 +13,6 @@ class ItemsController < ApplicationController
   def show
   end
 
-  def pay
-    Payjp.api_key = 'sk_test_e105ebc1622e4c1739841ba7'
-    Payjp::Charge.create(
-      amount: 3500,
-      card: params['payjp-token']
-      current: 'jpy'
-    )
-  end
-
-
-
 private
   
   def item_params
