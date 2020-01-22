@@ -1,3 +1,18 @@
+Brand.first_or_create!([
+
+  { id: 1, name: 'シャネル' },
+
+  { id: 2, name: 'ルイヴィトン' },
+
+  { id: 3,  name: 'シュプリーム' },
+
+  { id: 4, name: 'ナイキ' },
+
+  { id: 5, name: 'アディダス' },
+
+  { id: 6, name: 'ポー' },
+])
+
 # レディース
 lady = Category.create(name: "レディース")
 lady_tops = lady.children.create(name: "トップス")
@@ -327,6 +342,8 @@ others_8 = others.children.create(name: "事務/店舗用品")
 others_8.children.create([{name: "オフィス用品一般"},{name: "オフィス家具"},{name: "店舗用品"},{name: "OA機器"},{name: "ラッピング/包装"},{name: "その他"}])
 others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
+
+
 
 
 
