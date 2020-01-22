@@ -5,11 +5,11 @@
   .item-content.clearfix
     .item-content__photo
       .item-content__photo--top
-        =image_tag "mochi.jpg"
+        =image_tag @item.images[0].image.url
       .item-content__photo--bottom
-        .item-content__photo--bottom__pic
-          - @item.images.each do |image|
-            = image_tag image.image,class:"mini_image"
+        - @item.images.each do |image|
+          .item-content__photo--bottom__pic
+            = image_tag image.image.url, class:"mini_image"
     %table.item-content__table
       %tr
         %th
@@ -36,7 +36,7 @@
         %td
           =link_to do
             %div
-              = @category.name
+              = @item.category.name
           =link_to do
             %div
               -# = @parents.children.name

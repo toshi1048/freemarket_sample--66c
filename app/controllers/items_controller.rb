@@ -31,10 +31,9 @@ class ItemsController < ApplicationController
   def show
     
     @item = Item.find(params[:id])
+    @images = @item.images
     @user = User.find(params[:id])
     @brand = Brand.find(params[:id])
-    @items = Item.includes(:images).order("created_at DESC")
-    @category = Item.includes(:categories)
   end
 
 private
@@ -56,4 +55,5 @@ private
       Category.where(ancestry: nil).each do |parent|
     @category_parent_array << parent
   end
+end
 end

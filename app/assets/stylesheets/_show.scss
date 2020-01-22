@@ -60,7 +60,13 @@ tr {
           width: 60px;
           height: 60px;
           display: inline-block;
-          background-color: yellowgreen;
+          background-color:#fff;
+          .mini_img{
+            background-color:transparent;
+            opacity:0.6;
+            transform:translate(-50%);
+          }
+
         }}}
     &__table{
       float: right;
