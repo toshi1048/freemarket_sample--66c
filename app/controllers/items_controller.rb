@@ -21,15 +21,15 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+
     if @item.save
       redirect_to root_path
     else
-      render :new
+      redirect_to new_item_path
     end
   end
 
   def show
-    
     @item = Item.find(params[:id])
     @images = @item.images
     @user = User.find(params[:id])
@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
 private
   
   def item_params
-    params.require(:item).permit(:name,:detail,:brand_id, :price, :shipping_date,:condition,:image, :delivery_method, :region, :postage,:category_id, images_attributes: [:image]).merge(saler_id: 1,buyer_id: 2)
+    params.require(:item).permit(:name,:detail,:brand_id, :price, :shipping_date,:condition,:image, :delivery_method, :region, :postage,:category_id, images_attributes: [:image]).merge(saler_id: current_user.id,buyer_id: nil)
   end
 
   def usre_params

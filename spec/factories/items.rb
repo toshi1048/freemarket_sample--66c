@@ -1,8 +1,10 @@
 FactoryBot.define do
   factory :item do
-    user_id               {"1"}
+    buyer_id               {"1"}
+    saler_id               {nil}
     name                  {"LGTM祈願のマフラー"}
     price                 {"1000"}
+    detail                 {"暖かい"}
     category_id            {"1"}
     brand_id               {"1"}
     shipping_date          {"test"}
@@ -10,8 +12,8 @@ FactoryBot.define do
     delivery_method         {"1"}
     postage                 {"1"}
     images {[
-      FactoryBot.build(:image, product: nil)  #itemと同時にimage作成
+      # {File.new("#{Rails.root}/app/assets/images/uploaded.jpg")}
+      # FactoryBot.build(:image, product: nil)  #itemと同時にimage作成
     ]}
-    user
   end
 end
