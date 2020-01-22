@@ -1,7 +1,7 @@
 class ToppageController < ApplicationController
   def index
-    @ladies        = Item.category(1..200).recent
-    @mens          = Item.category(201..345).recent
+    @ladies        = Item.category(1..199).recent
+    @mens          = Item.category(200..345).recent
     @kids          = Item.category(346..480).recent
     @interior      = Item.category(481..624).recent
     @game          = Item.category(625..684).recent

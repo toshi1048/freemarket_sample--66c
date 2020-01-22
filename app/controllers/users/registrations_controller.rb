@@ -6,7 +6,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    @user = User.new(sign_up_params)
+    if params[:sns_auth] == 'true'
+      pass = Devise.friendly_token.first(7)
+      params[:user][:password] = pass
+      @user = User.new(sign_up_params)
+    else
+      @user = User.new(sign_up_params)
+    end
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
       render :new and return
@@ -61,7 +67,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_address(@address.attributes)
     @user.build_card(@card.attributes)
     @user.save
-    # sign_in(:user, @user)
+    sign_in(:user, @user)
     render :create_address
   end
 
