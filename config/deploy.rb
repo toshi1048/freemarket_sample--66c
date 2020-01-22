@@ -34,4 +34,4 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 end
-after 'deploy:update_code', 'db:seed_fu'
+before 'deploy:publishing', 'db:seed_fu'
