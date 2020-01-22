@@ -9,7 +9,7 @@
       .item-content__photo--bottom
         .item-content__photo--bottom__pic
           - @item.images.each do |image|
-            = image_tag image.image,class:"mini_image"
+            = image_tag "#{image.image}",class:"mini_image"
     %table.item-content__table
       %tr
         %th

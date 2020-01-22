@@ -29,18 +29,19 @@ class ItemsController < ApplicationController
   end
 
   def show
-    
     @item = Item.find(params[:id])
     @user = User.find(params[:id])
     @brand = Brand.find(params[:id])
+    # @image = Image.find(params[:id])
     @items = Item.includes(:images).order("created_at DESC")
     @category = Item.includes(:categories)
+    # binding.pry
   end
 
 private
   
   def item_params
-    params.require(:item).permit(:name,:detail,:brand_id, :price, :shipping_date,:condition,:image, :delivery_method, :region, :postage,:category_id, images_attributes: [:image]).merge(saler_id: 1,buyer_id: 2)
+    params.require(:item).permit(:name,:detail,:brand_id, :price, :shipping_date,:condition,:image, :delivery_method, :region, :postage,:category_id, images_attributes: [:image]).merge(saler_id: current_user.id,buyer_id: nil)
   end
 
   def usre_params
@@ -56,4 +57,5 @@ private
       Category.where(ancestry: nil).each do |parent|
     @category_parent_array << parent
   end
+end
 end
