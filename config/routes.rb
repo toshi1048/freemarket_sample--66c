@@ -8,8 +8,6 @@ Rails.application.routes.draw do
     post 'phone_numbers', to: 'users/registrations#create_tel'
     post 'addresses', to: 'users/registrations#create_address'
     post 'cards', to: 'users/registrations#create_card'
-
-
   end
   root "toppage#index"
   # 後にこちらのビューファイルと紐付けます。
