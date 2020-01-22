@@ -7,6 +7,6 @@ class Item < ApplicationRecord
   belongs_to :buyer, class_name: "User", optional: true
 
   scope :category, -> (number){where(category_id: number)}
-  scope :recent, -> {order('id DESC').limit(4)}
+  scope :recent, -> {order('id DESC').limit(8)}
   scope :brand,  -> (number){where(brand_id: number)}
 end
