@@ -1,32 +1,3 @@
-Brand.first_or_create(
-  [    
-    {
-      id = 1,
-      name: 'シャネル',
-    },
-    {
-      id = 2,
-      name: 'ルイヴィトン',
-    },
-    {
-      id = 3,
-      name: 'シュプリーム',
-    },
-    {
-      id = 4,
-      name: 'ナイキ',
-    },
-    {
-      id = 5,
-      name: 'アディダス',
-    },
-    {
-      id = 6
-      name: 'プーマ',
-    },
-  ]
-)
-
 # レディース
 lady = Category.create(name: "レディース")
 lady_tops = lady.children.create(name: "トップス")
