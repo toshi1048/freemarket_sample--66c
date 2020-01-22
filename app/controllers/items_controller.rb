@@ -17,10 +17,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    items = Item.find(params[:id])
-     if item.user_id == current_user.id
-      item.destroy
-     end
+    # binding.pry
+    item = Item.find(params[:id])
+    item.destroy  
+    #  if item.seller_id == current_user.id
+    #   item.destroy
+    #  end
    end
 
 private
