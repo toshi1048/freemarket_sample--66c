@@ -8,8 +8,6 @@ Rails.application.routes.draw do
     post 'phone_numbers', to: 'users/registrations#create_tel'
     post 'addresses', to: 'users/registrations#create_address'
     post 'cards', to: 'users/registrations#create_card'
-
-
   end
   root "toppage#index"
   # 後にこちらのビューファイルと紐付けます。
@@ -33,13 +31,13 @@ Rails.application.routes.draw do
   end
   resources :items,only:[:index,:new,:create,:show] do
     collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'done'
+      post 'purchase'
     end
   end
-  resources :cards, only: [:new, :create,:index] do
-    collection do
-      get 'new-card'
-    end
-  end
+  resources :cards, only: [:new, :create,:index] 
+
 end
 

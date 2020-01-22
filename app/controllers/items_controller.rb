@@ -1,17 +1,33 @@
 class ItemsController < ApplicationController
+  before_action :set_category, only: [:new, :create]
 
   require 'payjp'
 
+
   def index
-    
   end
 
   def new
     @item = Item.new
+    @item.images.new
+
+    def get_category_children
+      @category_children = Category.find_by("#{params[:parent_name]}", ancestry: nil).children
+    end
+  
+    def get_category_grandchildren
+      @category_grandchildren = Category.find("#{params[:child_id]}").children
+    end
+
   end
 
   def create
-    Item.create(item_params)
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -20,41 +36,24 @@ class ItemsController < ApplicationController
   def purchase
     Payjp.api_key = "sk_test_e105ebc1622e4c1739841ba7"
     Payjp::Charge.create(
-      amount: @item.price, # 決済する値段
+      amount: 11111, # 決済する値段
       card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
       currency: 'jpy'
     )
-    @item.update(buyer_id: current_user_id)
-    redirect_to items_path
   end
 
-  def buy_confirmation 
-    if @card.present?
-      Payjp.api_key =  "sk_test_e105ebc1622e4c1739841ba7"
-      customer = Payjp::Customer.retrieve(@card.customer_id)
-      @card_information = customer.cards.retrieve(@card.card_id)    
-      @card_brand = @card_information.brand      
-      case @card_brand
-      when "Visa"
-        @card_src = "visa.png"
-      when "JCB"
-        @card_src = "jcb.png"
-      when "MasterCard"
-        @card_src = "master-card.png"
-      when "American Express"
-        @card_src = "american_express.png"
-      when "Diners Club"
-        @card_src = "dinersclub.png"
-      when "Discover"
-        @card_src = "discover.png"
-      end
-      @address = @item.user.address
-    end
-  end
+
 
 private
   
   def item_params
-    params.require(:item).permit(:name, :price, :shipping_date, :condition, :delivery_method, :region, :postage).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name,:detail,:brand_id, :price, :shipping_date,:condition,:image, :delivery_method, :region, :postage,:category_id, images_attributes: [:image]).merge(saler_id: 1,buyer_id: 2)
+  end
+
+  def set_category
+    @category_parent_array = []
+      Category.where(ancestry: nil).each do |parent|
+    @category_parent_array << parent
+  end
   end
 end

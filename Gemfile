@@ -90,10 +90,11 @@ gem 'ancestry'
 gem 'active_hash'
 gem 'erb2haml'
 gem 'font-awesome-sass', '~> 5.4.1'
+gem 'jquery-rails'
 gem "gretel"
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 gem 'payjp'
 gem "jquery-rails"
-gem 'dotenv-rails'
+gem 'seed-fu', '~> 2.3'
