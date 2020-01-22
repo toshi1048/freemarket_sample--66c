@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
   }
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
@@ -21,13 +22,20 @@ Rails.application.routes.draw do
   #     get 'done'
   #   end
   # end
+  resources :signup,only:[:index]
   resources :mypages,only:[:index,:edit] do
     collection do
       get 'card'
       get 'signout'
       get 'identification'
+      get 'edit'
     end
   end
-  resources :items,only:[:index,:new,:create,:show]
+  resources :items,only:[:index,:new,:create,:show] do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+  end 
+end
 end
 

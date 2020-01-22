@@ -1,14 +1,31 @@
 class ItemsController < ApplicationController
+  before_action :set_category, only: [:new, :create]
+
   def index
     @items = Item.includes(:images).limit(1)
   end
 
   def new
     @item = Item.new
+    @item.images.new
+
+    def get_category_children
+      @category_children = Category.find_by("#{params[:parent_name]}", ancestry: nil).children
+    end
+  
+    def get_category_grandchildren
+      @category_grandchildren = Category.find("#{params[:child_id]}").children
+    end
+
   end
 
   def create
-    Item.create(item_params)
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -23,7 +40,7 @@ class ItemsController < ApplicationController
 private
   
   def item_params
-    params.require(:item).permit(:name, :price, :shipping_date, :condition, :delivery_method, :region, :postage,:image).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name,:detail,:brand_id, :price, :shipping_date,:condition,:image, :delivery_method, :region, :postage,:category_id, images_attributes: [:image]).merge(saler_id: 1,buyer_id: 2)
   end
 
   def usre_params
@@ -34,5 +51,9 @@ private
     params.premit(:id,:name)
   end
 
-
+  def set_category
+    @category_parent_array = []
+      Category.where(ancestry: nil).each do |parent|
+    @category_parent_array << parent
+  end
 end

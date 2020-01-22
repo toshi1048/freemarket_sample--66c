@@ -1,16 +1,12 @@
-.image_main
-  %ul.image_main__list-box
-    - @items.each do |item|
-      %li.image_main__list__box__content
-        .image_main__list__box__content__item
-          = link_to item_path(item.id), class: "item_link" do
-            .image_main__list__box__content__item__image
-              = image_tag "#{item.images[0].image}",size: "252x188",class:"item_image"
-              .image_main__list__box__content__item__image__price
-                %p.image.price
-                  = "¥#{item.price}"
-          .image_main__list__box__content__item__name
-            %p.img_title
-              = item.name
 
+%li
+  .item
+    - if item.images.present?
+      = image_tag item.images[0].image.url, class: 'item-img',width: '100%',height: '100%'
+    - else
+      = image_tag "",class: 'item-img',width: '100%',height: '100%'
+    .plice
+      = item.price
+  .item-name
+    = item.name
 
