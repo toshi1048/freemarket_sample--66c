@@ -8,4 +8,11 @@ describe ItemsController, type: :controller do
     end
   end
 
+  describe '#create' do
+    context 'can save' do
+      it "is valid with content" do
+        expect(build(:item)).to be_valid
+        end
+      end
+end
 end
