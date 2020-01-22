@@ -53,7 +53,7 @@
         -# ="#{@address.last_name} #{@address.first_name}"
       .purchase-body__buy
         .purchase-body__buy__btn
-          = form_with url: purchase_items_path do
+          = form_with url: pay_items_path do
             :plain
               <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_f135870f88c553f1a568bcdb"></script>
   = render 'items/subfooter'

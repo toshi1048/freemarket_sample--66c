@@ -33,11 +33,11 @@ Rails.application.routes.draw do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
-      get 'done'
-      post 'purchase'
+      get  'purchase/:id'=>  'items#purchase', as: 'purchase'
+      get  'done'=>      'items#done', as: 'done'
+      post 'pay'
     end
   end
   resources :cards, only: [:new, :create,:index] 
-
 end
 

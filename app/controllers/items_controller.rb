@@ -35,15 +35,25 @@ class ItemsController < ApplicationController
   end
 
   def purchase
+  end
+  
+
+  def pay
     Payjp.api_key = "sk_test_e105ebc1622e4c1739841ba7"
     Payjp::Charge.create(
       amount: 11111, # 決済する値段
       card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
       currency: 'jpy'
     )
+    redirect_to action: :done
   end
 
 
+  def done
+  end
+
+  def purchase
+  end
 
 private
   
