@@ -5,11 +5,13 @@
   .item-content.clearfix
     .item-content__photo
       .item-content__photo--top
-        =image_tag @item.images[0].image.url
+        =image_tag @item.images[0].image.url ,class:"big_image"
+        
       .item-content__photo--bottom
         - @item.images.each do |image|
           .item-content__photo--bottom__pic
-            = image_tag image.image.url, class:"mini_image"
+            = image_tag image.image.url , class:"mini_image"
+            -# 画像は実際に登録しないと表示されません
     %table.item-content__table
       %tr
         %th
