@@ -1,4 +1,4 @@
-
+-# = @item.item.name
 .wrapper
   = render  "header"
   .top__content
@@ -45,9 +45,10 @@
         = render partial: "category"
         .top__main-m1
           %ul
-            - @items.each do |item|
-              = render partial: "item", locals: { item: item }
+            =render partial:"item"
+            -# - @items.each do |item|
+            -# = render partial: "item", locals: { item: item }
 
   -# = render "shared/new-item"
-  -# フッターを呼び込み
-  = render "footer"
+  -# -# フッターを呼び込み
+  -# = render "footer"

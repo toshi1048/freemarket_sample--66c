@@ -1,6 +1,7 @@
 class ToppageController < ApplicationController
   def index
-    @items  = Item.all
+    
+    @items = Item.includes(:images).order("created_at DESC").limit(10)
     # @category_parent_array = ["---"]
     # Category.where(ancestry: nil).each do |parent|
     # @category_parent_array << parent.name
@@ -34,5 +35,17 @@ class ToppageController < ApplicationController
   # end
 
   def show
+  end
+
+
+
+private
+  
+  def item_params
+    params.require(:image).permit(:user_id,:item_id,:created_at)
+  end
+
+  def image_params
+    parems.repuire(:image).permit(:item_id,:id)
   end
 end
