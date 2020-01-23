@@ -6,7 +6,7 @@ $(function(){
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
     childSelectHtml = `
-                          <select class="sell__item-categry" id="child_category" name="category_id">
+                          <select class="sell__item-categry" id="child_category" name="item[category_id]">
                             <option value="---" data-category="---">---</option>
                             ${insertHTML}
                           <select>`;
@@ -14,7 +14,7 @@ $(function(){
   }
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHtml = '';
-    grandchildSelectHtml = `    <select class="sell__item-categry" id="grandchild_category" name="category_id">
+    grandchildSelectHtml = `    <select class="sell__item-categry" id="grandchild_category" name="item[category_id]">
                                   <option value="---" data-category="---">---</option>
                                   ${insertHTML}
                                 </select>`;
@@ -22,15 +22,15 @@ $(function(){
   }
   $('#parent_category').on('change', function(){
     var parentCategory = document.getElementById('parent_category').value;
-    if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
+    if (parentCategory != "---"){
       $.ajax({
         url: 'get_category_children',
         type: 'GET',
-        data: { parent_name: parentCategory },
+        data: { parent_id: parentCategory },
         dataType: 'json'
       })
       .done(function(children){
-        $('#child_category').remove(); //親が変更された時、子以下を削除するする
+        $('#child_category').remove();
         $('#grandchild_category').remove();
         var insertHTML = '';
         children.forEach(function(child){
