@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_category, only: [:new, :create]
+  before_action :set_category, only: [:new, :create, :edit, :update]
+  before_action :set_item, except: [:index, :new, :create]
 
   def index
     @items = Item.includes(:images).limit(1)
