@@ -1,7 +1,4 @@
 
--# ヘッダー部分
-= render '/toppage/header'
-編集
--# フッター部分
-= render '/toppage/footer'
-
+= render 'subheader'
+= render partial: "item", locals: { item: @item }
+= render 'subfooter'
