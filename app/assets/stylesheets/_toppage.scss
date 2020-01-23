@@ -17,7 +17,6 @@
     font-weight: bold;
     border: solid 1px gray;/*線*/
     text-align: right;
-
     background-color: rgb(245, 245, 245);
     font-size: 16px;
     line-height: 1.4em;
@@ -27,6 +26,11 @@
     border-image: initial;
     border-radius: 4px;
     outline: none;
+  }
+}
+.banner{
+  // margin: 0 10%;
+  .banner_img{
   }
 }
 .bottom{

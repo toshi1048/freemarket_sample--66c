@@ -1,5 +1,7 @@
 .wrapper
   = render  "header"
+  = render "banner"
+
   .top__content
     .top__content--header
       %h1
@@ -132,5 +134,6 @@
             - @nike.each do |item|
               = render partial: "item", locals: { item: item }
   = render "shared/new-item"
+  = render "banner"
   -# フッターを呼び込み
   = render "footer"
