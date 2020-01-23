@@ -10,5 +10,3 @@
     .item-name
       = item.name
     - if user_signed_in? && current_user.id == item.saler_id
-      = link_to '編集', edit_item_path(item)
-      = link_to "削除", item_path(item), method: :delete, class: "items__gray"

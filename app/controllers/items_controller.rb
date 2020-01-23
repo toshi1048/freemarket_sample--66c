@@ -53,8 +53,8 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @images = @item.images
-    @user = User.find(params[:id])
-    @brand = Brand.find(params[:id])
+    # @user = User.find(params[:id])
+    # @brand = Brand.find(params[:id])
   end
 
   def edit
