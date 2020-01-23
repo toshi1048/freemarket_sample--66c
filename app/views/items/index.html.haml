@@ -5,55 +5,44 @@
   //ボディーの部分
   .purchase-body
     .purchase-body__list
-      .purchase-body__verification
-        購入内容の確認
-      .purchase-body__payment
-        = image_tag "fuku.jpg", size: "80x80"
-        .purchase-body__payment__info
-          .purchase-body__payment__info__brand
-            -# =@item.name
-          .purchase-body__payment__info__money
-            -# ="#{converting_to_jpy(@item.price)}  (税込)  送料込み"
-      .purchase-body__total
-        .purchase-body__total__price
-          支払い金額
-        .purchase-body__total__moeny2
-          -# =converting_to_jpy(@item.price)
-      .purchase-body__checkbox
-        = check_box_tag :test1
-        = label_tag :test1, "ポイントを使用(所持ポイント:P0)" 
-      .purchase-body__total2
-        .purchase-body__total2__method
-          支払い方法
-        .purchase-body__total2__register
-          .purchase-body__total2__register__link__word
-            登録してください
-      - if @card.present?
-        クレジットカード
-        %ul.content__credit-cards__list
-          %li
-            .content__credit-cards__list--pay-num
-              = "**** **** **** " + @card_information.last4
-            .content__credit-cards__list--pay-num
-              - exp_month = @card_information.exp_month.to_s
-              - exp_year = @card_information.exp_year.to_s.slice(2,3)
-              = exp_month + " / " + exp_year
-          %li 
-            = image_tag @card_src, width: '28', height: '25', alt: @card_brand, id: "card_image"
-      .purchase-body__delivery
-        .purchase-body__delivery__area
-          配送先
-        = link_to "#", class: "purchase-body__delivery__change" do
-          変更する
-      .purchase-body__address
-        -# ="〒#{@address.postcode}"
-        %br
-        -# ="#{@address.prefecture.name} #{@address.city} #{@address.block} #{@address.building}"
-        %br
-        -# ="#{@address.last_name} #{@address.first_name}"
-      .purchase-body__buy
-        .purchase-body__buy__btn
-          = form_with url: pay_items_path do
-            :plain
-              <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_f135870f88c553f1a568bcdb"></script>
+      -@items.each do |item|
+        .purchase-body__verification
+          購入内容の確認
+        .purchase-body__payment
+          = image_tag "fuku.jpg", size: "80x80"
+          .purchase-body__payment__info
+            .purchase-body__payment__info__brand
+              = item.name
+            .purchase-body__payment__info__money
+              = "¥#{item.price}(税込)送料込み"
+        .purchase-body__total
+          .purchase-body__total__price
+            支払い金額
+          .purchase-body__total__moeny2
+            = "¥#{item.price}"
+        .purchase-body__checkbox
+          = check_box_tag :test1
+          = label_tag :test1, "ポイントを使用(所持ポイント:P0)" 
+        .purchase-body__total2
+          .purchase-body__total2__method
+            支払い方法
+          .purchase-body__total2__register
+            = link_to card_mypages_path, class: "card_link" do
+              .purchase-body__total2__register__link__word
+                登録してください
+        .purchase-body__delivery
+          .purchase-body__delivery__area
+            配送先
+          = link_to "#", class: "purchase-body__delivery__change" do
+            変更する
+        .purchase-body__address
+          〒000-0000
+          %br
+          神奈川県川崎市宮前区５−５−５
+          %br
+          福留 稔也
+        .purchase-body__buy
+          = link_to item_path(item.id), class: "item_link" do
+            .purchase-body__buy__btn
+              購入する
   = render 'items/subfooter'

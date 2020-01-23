@@ -1,7 +1,8 @@
 class ToppageController < ApplicationController
-  def index
-    @ladies        = Item.category(1..200).recent
-    @mens          = Item.category(201..345).recent
+  def index    
+    @items = Item.includes(:images).order("created_at DESC").limit(10)
+    @ladies        = Item.category(1..199).recent
+    @mens          = Item.category(200..345).recent
     @kids          = Item.category(346..480).recent
     @interior      = Item.category(481..624).recent
     @game          = Item.category(625..684).recent
@@ -13,8 +14,22 @@ class ToppageController < ApplicationController
     @louis_vuitton = Item.brand(2).recent
     @supreme       = Item.brand(3).recent
     @nike          = Item.brand(4).recent
-  end
-  
+   end
+
+
   def show
   end
+
+
+
+private
+  
+  def item_params
+    params.require(:image).permit(:user_id,:item_id,:created_at)
+  end
+
+  def image_params
+    parems.repuire(:image).permit(:item_id,:id)
+  end
 end
+

@@ -10,16 +10,7 @@ Rails.application.routes.draw do
     post 'mycards', to: 'users/registrations#create_card'
   end
   root "toppage#index"
-  # 後にこちらのビューファイルと紐付けます。
-  # resources :signup do
-  #   collection do
-  #     get 'information'
-  #     get 'authentication'
-  #     get 'address'
-  #     get 'payment'
-  #     get 'done'
-  #   end
-  # end
+
   resources :signup,only:[:index]
   resources :mypages,only:[:index,:edit] do
     collection do
@@ -29,13 +20,17 @@ Rails.application.routes.draw do
       get 'edit'
     end
   end
-  resources :items,only:[:index,:new,:create,:show] do
+  resources :items do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get  'purchase/:id'=>  'items#purchase', as: 'purchase'
       get  'done'=>      'items#done', as: 'done'
       post 'pay'
+    end
+    member do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
   resources :cards, only:[:new, :create] do
