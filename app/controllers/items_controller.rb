@@ -31,10 +31,24 @@ class ItemsController < ApplicationController
   end
 
   def edit
+
+    def get_category_children
+      @category_children = Category.find_by("#{params[:parent_name]}", ancestry: nil).children
+    end
+  
+    def get_category_grandchildren
+      @category_grandchildren = Category.find("#{params[:child_id]}").children
+    end
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else 
+      redirect_to :edit
+    end
   end
+
 
   def show
     @item = Item.find(params[:id])
@@ -46,7 +60,8 @@ class ItemsController < ApplicationController
 private
   
   def item_params
-    params.require(:item).permit(:name,:detail,:brand_id, :price, :shipping_date,:condition,:image, :delivery_method, :region, :postage,:category_id, images_attributes: [:image]).merge(saler_id: current_user.id,buyer_id: nil)
+    params.require(:item).permit(:name,:detail,:brand_id, :price, :shipping_date,:condition,:image, :delivery_method, :region, :postage,:category_id, images_attributes: [:image, :_destroy, :id]).merge(saler_id: current_user.id,buyer_id: nil)
+
   end
 
   def usre_params
@@ -60,7 +75,11 @@ private
   def set_category
     @category_parent_array = []
       Category.where(ancestry: nil).each do |parent|
-    @category_parent_array << parent
+        @category_parent_array << parent
+      end
   end
-end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end
