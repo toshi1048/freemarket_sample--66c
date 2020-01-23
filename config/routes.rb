@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'phone_numbers', to: 'users/registrations#create_tel'
     post 'addresses', to: 'users/registrations#create_address'
-    post 'cards', to: 'users/registrations#create_card'
+    post 'mycards', to: 'users/registrations#create_card'
   end
   root "toppage#index"
   # 後にこちらのビューファイルと紐付けます。
@@ -38,9 +38,10 @@ Rails.application.routes.draw do
       post 'pay'
     end
   end
-  resources :cards, only:[:new, :create,:index] do
+  resources :cards, only:[:new, :create] do
     collection do
-      post 'entry', to: 'cards#create'
+      post 'done', to: 'cards#create'
+      get 'done'
     end
   end
 end

@@ -7,7 +7,7 @@
     %h1 クレジットカード情報入力
   .content__credit-card
     .content__credit-card__inner
-      = form_with url: entry_cards_path, method: :post, html: { name: "inputForm" } do |f| # createアクションのパスを指定
+      = form_with url: cards_path, method: :post, html: { name: "inputForm" } do |f| # createアクションのパスを指定
         .cards-number
           = f.label :カード番号, class: 'label'
           %span.form_require 必須
