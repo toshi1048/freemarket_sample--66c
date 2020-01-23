@@ -57,6 +57,17 @@ class ItemsController < ApplicationController
     @brand = Brand.find(params[:id])
   end
 
+  def edit
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+    else 
+      redirect_to item_path(item)
+    end
+  end
+
 private
   
   def item_params
