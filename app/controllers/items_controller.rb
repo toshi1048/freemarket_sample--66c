@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_category, only: [:new, :create]
 
   def index
+    @items = Item.includes(:images).limit(1)
   end
 
   def new
@@ -9,7 +10,7 @@ class ItemsController < ApplicationController
     @item.images.new
 
     def get_category_children
-      @category_children = Category.find_by("#{params[:parent_name]}", ancestry: nil).children
+      @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
     end
   
     def get_category_grandchildren
@@ -29,6 +30,10 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @images = @item.images
+    @user = User.find(params[:id])
+    @brand = Brand.find(params[:id])
   end
 
   def edit
@@ -49,12 +54,18 @@ private
     params.require(:item).permit(:name,:detail,:brand_id, :price, :shipping_date,:condition,:image, :delivery_method, :region, :postage,:category_id, images_attributes: [:image]).merge(saler_id: current_user.id,buyer_id: nil)
   end
 
+  def usre_params
+    params.require(:user).permit(:email, :encrypted_password, :nickname,:first_name, :last_name, :first_name_rattle,:birthyear,:birthmonth,:birthday, :introduction,:image,)
+  end
+
+  def brand_params
+    params.premit(:id,:name)
+  end
+
   def set_category
     @category_parent_array = []
       Category.where(ancestry: nil).each do |parent|
     @category_parent_array << parent
   end
-  end
-
-
+end
 end
