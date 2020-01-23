@@ -64,7 +64,7 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to root_path
     else 
-      redirect_to tem_path(item), method: :delete
+      redirect_to item_path(item)
     end
   end
 
