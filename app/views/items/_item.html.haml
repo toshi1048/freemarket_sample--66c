@@ -31,14 +31,6 @@
                 = file_field_tag :item, name: "item[images_attributes][#{@item.images.count}][item]", class: 'js-file'
                 .js-remove 削除
 
-            -# = f.fields_for :images ,class: 'upload--group' do |pic|
-            -#   .js-file_group{data: {index: "#{pic.index}"}}
-            -#     = pic.file_field :image, class: 'upload--group--text'
-            -#     %br
-            -#     %span.js-remove
-            -#       削除
-
-
         .sell__form--name
           .sell--item-name
             .sell__line
@@ -149,6 +141,4 @@
               %p
                 に同意したことになります。
           = button_to '出品する', items_path,class: 'sell__form--btn'
-          -# %button.sell__form--btn
-          -#   出品する
           =link_to 'もどる', '#', class: "sell__form--back"
