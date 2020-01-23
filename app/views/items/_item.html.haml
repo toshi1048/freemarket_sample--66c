@@ -21,7 +21,7 @@
                   = image_tag pic.image.url, data: { index: i }, width: "100", height: '100'
             = f.fields_for :images do |pic|
               .js-file_group{"data-index" => "#{pic.index}"}
-                = pic.file_field :item, class: 'js-file'
+                = pic.file_field :image, class: 'js-file'
                 %br/
                 %span.js-remove 削除
               - if @item.persisted?
