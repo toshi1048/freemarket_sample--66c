@@ -38,6 +38,10 @@ Rails.application.routes.draw do
       post 'pay'
     end
   end
-  resources :cards, only: [:new, :create,:index] 
+  resources :cards, only:[:new, :create,:index] do
+    collection do
+      post 'entry', to: 'cards#create'
+    end
+  end
 end
 

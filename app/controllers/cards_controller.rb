@@ -7,10 +7,8 @@ class CardsController < ApplicationController
     redirect_to action: "index" if card.present?
   end
 
- # indexアクションはここでは省略
-
   def create #PayjpとCardのデータベースを作成
-    Payjp.api_key = 'sk_test_e105ebc1622e4c1739841ba7'
+    Payjp.api_key =ENV['PAYJP_PRIVATE_KEY']
 
     if params['payjp-token'].blank?
       redirect_to action: "new"
@@ -20,7 +18,7 @@ class CardsController < ApplicationController
         description: 'test', # 無くてもOK。PAY.JPの顧客情報に表示する概要です。
         email: current_user.email,
         card: params['payjp-token'], # 直前のnewアクションで発行され、送られてくるトークンをここで顧客に紐付けて永久保存します。
-        metadata: {user_id: current_user.id} # 無くてもOK。
+        metadata: {user_id: current_user.id}
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
