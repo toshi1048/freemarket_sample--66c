@@ -1,7 +1,6 @@
 $(function(){
-  $('.mini_image img').click(function(){
+  $('.mini_image').hover(function(){
    var $thisImg = $(this).attr('src');
-   alert()
-   $('.big_image img').attr({src:$thisImg});
+   $('.big_image').attr({src:$thisImg});
   });
  });
