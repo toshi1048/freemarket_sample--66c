@@ -1,5 +1,7 @@
 .wrapper
   = render  "header"
+  = render "banner"
+
   .top__content
     .top__content--header
       %h1
@@ -39,7 +41,8 @@
         .top__main-m1
           %ul
             - @mens.each do |item|
-              = render partial: "item", locals: { item: item }
+              = link_to item_path(item),class: "item_links" do
+                = render partial: "item", locals: { item: item }
 
     .top__content--main
       .top__main-box
@@ -52,7 +55,8 @@
         .top__main-m1
           %ul
             - @cosmetics.each do |item|
-              = render partial: "item", locals: { item: item }
+              = link_to item_path(item),class: "item_links" do
+                = render partial: "item", locals: { item: item }
     .top__content--main
       .top__main-box
         .top__main-h1
@@ -64,7 +68,8 @@
         .top__main-m1
           %ul
             - @hobby.each do |item|
-              = render partial: "item", locals: { item: item }
+              = link_to item_path(item),class: "item_links" do
+                = render partial: "item", locals: { item: item }
 
     .top__content
     .top__content--header
@@ -92,7 +97,8 @@
         .top__main-m1
           %ul
             - @chanel.each do |item|
-              = render partial: "item", locals: { item: item }
+              = link_to item_path(item),class: "item_links" do
+                = render partial: "item", locals: { item: item }
 
     .top__content--main
       .top__main-box
@@ -105,7 +111,8 @@
         .top__main-m1
           %ul
             - @louis_vuitton.each do |item|
-              = render partial: "item", locals: { item: item }
+              = link_to item_path(item),class: "item_links" do
+                = render partial: "item", locals: { item: item }
 
     .top__content--main
       .top__main-box
@@ -118,7 +125,8 @@
         .top__main-m1
           %ul
             - @supreme.each do |item|
-              = render partial: "item", locals: { item: item }
+              = link_to item_path(item),class: "item_links" do
+                = render partial: "item", locals: { item: item }
 
     .top__content--main
       .top__main-box
@@ -131,7 +139,9 @@
         .top__main-m1
           %ul
             - @nike.each do |item|
-              = render partial: "item", locals: { item: item }
+              = link_to item_path(item),class: "item_links" do
+                = render partial: "item", locals: { item: item }
   = render "shared/new-item"
+  = render "banner2"
   -# フッターを呼び込み
   = render "footer"
