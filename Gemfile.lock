@@ -296,7 +296,6 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
-    rmagick (4.0.0)
     rspec-core (3.9.1)
       rspec-support (~> 3.9.1)
     rspec-expectations (3.9.0)
@@ -412,7 +411,6 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.3)
   rails-controller-testing
-  rmagick
   rspec-rails
   sass-rails (= 5.0.7)
   sassc (= 2.2.1)
