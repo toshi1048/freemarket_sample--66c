@@ -3,7 +3,8 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.includes(:images).limit(1)
+    @item = Item.includes(:images)
+
   end
 
   def new
