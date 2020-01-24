@@ -49,7 +49,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     session["address"] = {address: @address.attributes}
     session["address"][:address]= params[:address]
-    @card = Card.new
     render :new_card
   end
   
@@ -68,7 +67,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_card(@card.attributes)
     @user.save
     sign_in(:user, @user)
-    render :create_address
+    render :complete
   end
 
   protected

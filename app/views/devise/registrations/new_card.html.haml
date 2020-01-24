@@ -28,7 +28,7 @@
       支払い方法
     .MemberInformationInput__content
       .MemberInformationInput__content--form
-        = form_for @card do |f|
+        = form_for @card, url: mycards_path, method: :post do |f|
           = render "devise/shared/error_messages", resource: @card
           .field
             = f.label :カード番号
