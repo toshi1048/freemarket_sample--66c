@@ -56,8 +56,6 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @images = @item.images
-    # @user = User.find(params[:id])
-    # @brand = Brand.find(params[:id])
   end
 
   def edit
@@ -100,7 +98,7 @@ private
   end
 
   def usre_params
-    params.require(:user).permit(:email, :encrypted_password, :nickname,:first_name, :last_name, :first_name_rattle,:birthyear,:birthmonth,:birthday, :introduction,:image,)
+    params.require(:user).permit(:email, :encrypted_password, :nickname,:first_name, :last_name, :first_name_rattle,:birthyear,:birthmonth,:birthday, :introduction,:image)
   end
 
   def brand_params

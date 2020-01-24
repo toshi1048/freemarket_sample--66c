@@ -3,14 +3,17 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
   }
+
   devise_scope :user do
     post 'phone_numbers', to: 'users/registrations#create_tel'
     post 'addresses', to: 'users/registrations#create_address'
     post 'mycards', to: 'users/registrations#create_card'
   end
+
   root "toppage#index"
 
   resources :signup,only:[:index]
+
   resources :mypages,only:[:index,:edit] do
     collection do
       get 'card'
@@ -19,10 +22,11 @@ Rails.application.routes.draw do
       get 'edit'
     end
   end
+
   resources :items do
     collection do
-      get 'get_category_children', defaults: { format: 'json' }
-      get 'get_category_grandchildren', defaults: { format: 'json' }
+      get  'get_category_children', defaults: { format: 'json' }
+      get  'get_category_grandchildren', defaults: { format: 'json' }
       get  'purchase/:id'=>  'items#purchase', as: 'purchase'
       get  'done'=>      'items#done', as: 'done'
       post 'pay'
