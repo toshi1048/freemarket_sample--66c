@@ -27,15 +27,19 @@ Rails.application.routes.draw do
     collection do
       get  'get_category_children', defaults: { format: 'json' }
       get  'get_category_grandchildren', defaults: { format: 'json' }
-      get  'purchase/:id'=>  'items#purchase', as: 'purchase'
-      get  'done'=>      'items#done', as: 'done'
-      post 'pay'
+      # get  'purchase/:id'=>  'items#purchase', as: 'purchase'
+      # get  'done'=>      'items#done', as: 'done'
+      # post 'pay'
     end
     member do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'purchase'
+      post 'pay'
+      get 'done'
     end
   end
+
   resources :cards, only:[:new, :create] do
     collection do
       post 'done', to: 'cards#create'

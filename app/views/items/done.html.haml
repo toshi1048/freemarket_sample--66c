@@ -16,18 +16,18 @@
       .buy-item__centerbox__item
         .buy-item__centerbox__item__bx
           .buy-item__centerbox__item__bx__image
-            = image_tag "fuku.jpg", size: "80x80"
+            = image_tag @item.images[0].image.url, size: "80x80"
           .buy-item__centerbox__item__bx__bbx
             .buy-item__centerbox__item__bx__name
               商品の名前
             .buy-item__centerbox__item__bx__name__detail
-              ¥1,111（税込）送料込み
+              = "¥#{@item.price}（税込）送料込み"
       .buy-item__centerbox__info
         .buy-item__centerbox__info__price
           .buy-item__centerbox__info__price__detail
             支払い金額
           .buy-item__centerbox__info__price__price
-            ¥1,111
+            = @item.price
         .buy-item__centerbox__info__submit
           = link_to "トップページへ戻る", root_path, class: 'buy__centerbox__info__submit__button'
   .single-footer
