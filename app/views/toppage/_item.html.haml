@@ -1,6 +1,6 @@
 %li
   .item
-    = link_to purchase_items_path(item)do
+    = link_to items_path(item)do
       - if item.images.present?
         = image_tag item.images[0].image.url, class: 'item-img',width: '100%',height: '100%'
       - else
