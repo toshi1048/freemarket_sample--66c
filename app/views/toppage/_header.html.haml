@@ -3,7 +3,13 @@
     = link_to root_path do
       = image_tag "fmarket_logo_red.svg", class: 'top--logo'
     .top__search
-      %i.fas.fa-search
+      = form_tag(search_index_path, method: :get, class: 'search-form') do
+        -# = text_field_tag :search, class: 'search-form__input'
+        -# = submit_tag 'Search', :name => nil, class: 'search-form__submit'
+        %input.search-form__input{title: "検索", :placeholder => "何かお探しですか？" }
+          %buttun.search-form__buttun{title: "検索", type: "submit"}
+          %i.fas.fa-search
+
   .bottom
     .bottom__detail
       .bottom__detail--categories

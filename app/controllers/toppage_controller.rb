@@ -16,7 +16,6 @@ class ToppageController < ApplicationController
     @nike          = Item.brand(4).recent
    end
 
-
   def show
   end
 
