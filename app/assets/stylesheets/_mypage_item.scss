@@ -3,7 +3,9 @@
   height: 180px;
   margin: 0 auto;
   background: #fff;
+  margin-top: 47px;
   &--title {
+    min-width: calc(700px - 48px);
     text-align: center;
     line-height: 50px;
     border-bottom: 1px solid #ccc;
@@ -29,11 +31,11 @@
       outline: 0;
     }
   }
-}
-
-.card--list {
-  padding-bottom: 30px;
-}
+  
+  
+  .card--list {
+    padding-bottom: 30px;
+  }
   .card__inner {
     display: flex;
     justify-content: space-between;
@@ -45,3 +47,4 @@
     color: #ea352d;
     border-radius: 4px;
   }
+}
