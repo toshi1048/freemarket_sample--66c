@@ -5,11 +5,11 @@
   //ボディーの部分
   .purchase-body
     .purchase-body__list
-      -@items.each do |item|
+      -@item.each do |item|
         .purchase-body__verification
           購入内容の確認
         .purchase-body__payment
-          = image_tag "fuku.jpg", size: "80x80"
+          =image_tag item.images[0].image.url, size: "80x80"
           .purchase-body__payment__info
             .purchase-body__payment__info__brand
               = item.name

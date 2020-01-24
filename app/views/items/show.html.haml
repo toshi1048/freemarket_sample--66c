@@ -18,7 +18,7 @@
           出品者
         %td
           =link_to do
-            = @user.nickname
+            = @item.saler.nickname
           .rating
             .rating__counts
               %i.far.fa-laugh
@@ -50,7 +50,7 @@
           ブランド
         %td
           =link_to do
-            =@brand.name
+            =@item.brand.name
       %tr
         %th
           商品の状態
@@ -147,15 +147,13 @@
   .items__box
     -# -if 文を記述する
     .items__box--btn
-      .items__red
-        = link_to '編集', edit_item_path
-      %span
-        or
-      .items__gray
-        = link_to "削除", "3", method: :delete, class: "items__gray"
-        -# showページ実装後コメントアウト外す
-        -# /items/#{item.
-        
+      - if user_signed_in? && current_user.id == @item.saler_id
+        .items__red
+          = link_to '編集', edit_item_path(@item)
+        %span
+          or
+        .items__gray
+          = link_to "削除", item_path(@item), method: :delete, class: "items__gray"
 
 .item-comments
   .item-comments__content
@@ -207,7 +205,7 @@
   .recommends__user
     .recommends__user__head
       =link_to "#" do
-        hogehogeさんのその他の出品
+        = "#{@item.saler.nickname}さんのその他の出品"
     .recommends__user__items
       = 6.times do
         = render partial: 'elseitems'
