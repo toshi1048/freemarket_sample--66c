@@ -2,8 +2,8 @@ document.addEventListener(
   "DOMContentLoaded", (e) => {
     Payjp.setPublicKey("pk_test_f135870f88c553f1a568bcdb");
     const btn = document.getElementById('token_submit'); //IDがtoken_submitの場合に取得されます
-    btn.addEventListener("click", (e) => {　//ボタンが押されたときに作動します
-      e.preventDefault();　//ボタンを一旦無効化します
+    btn.addEventListener("click", (e) => { //ボタンが押されたときに作動します
+      e.preventDefault(); //ボタンを一旦無効化します
 
       //カード情報生成
       const card = {
