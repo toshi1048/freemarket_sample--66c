@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   require "payjp"
-  before_action :set_card
+  # before_action :set_card
 
   def done
   end
@@ -34,7 +34,7 @@ class CardsController < ApplicationController
 
   private
 
-  def set_card
-    @card = Card.find_by(user_id: current_user.id) if Card.find_by(user_id: current_user.id).present?
-  end
+  # def set_card
+    #@card = Card.find_by(user_id: current_user.id) if Card.find_by(user_id: current_user.id).present?
+  # end
 end
