@@ -68,7 +68,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_card(@card.attributes)
     @user.save
     sign_in(:user, @user)
-    render :create_address
+    render :complete
   end
 
   protected
