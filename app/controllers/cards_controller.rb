@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   require "payjp"
-  before_action :set_card
+  before_action :set_card only: [:new, :create]
 
   def done
   end
