@@ -26,15 +26,15 @@ li {
   background-color: white;
   width: 700px;
   margin: 0 auto;
-  .content__title{
+  &__title{
     text-align: center;
     padding: 32px;
     font-size: 22px;
   }
-  .content__credit-card{
+  &__credit-card{
     padding: 40px 40px 64px;
     border-top: 1px solid #f5f5f5;
-    .content__credit-card__inner{
+    &__inner{
       max-width: 343px;
       margin: auto;
       .content-bottom--add-btn{
