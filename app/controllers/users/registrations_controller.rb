@@ -49,6 +49,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     session["address"] = {address: @address.attributes}
     session["address"][:address]= params[:address]
+    @card = Card.new
     render :new_card
   end
   
