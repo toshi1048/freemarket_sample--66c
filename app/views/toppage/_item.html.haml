@@ -1,13 +1,13 @@
 %li
   .item
-    = link_to item_path(item)do
+  = link_to item_path(item)do
       - if item.images.present?
         = image_tag item.images[0].image.url, class: 'item-img',width: '100%',height: '100%'
       - else
         = image_tag "",class: 'item-img',width: '100%',height: '100%'
       .plice
         = "¥#{item.price}"
-  .item-name
-    = item.name
+    .item-name
+      = item.name
 
 
