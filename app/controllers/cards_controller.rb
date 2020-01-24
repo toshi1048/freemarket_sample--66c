@@ -6,7 +6,7 @@ class CardsController < ApplicationController
   end
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     redirect_to action: "index" if card.present?
   end
 
