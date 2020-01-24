@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'phone_numbers', to: 'users/registrations#create_tel'
     post 'addresses', to: 'users/registrations#create_address'
-    post 'cards', to: 'users/registrations#create_card'
+    post 'mycards', to: 'users/registrations#create_card'
   end
   root "toppage#index"
 
@@ -24,10 +24,19 @@ Rails.application.routes.draw do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get  'purchase/:id'=>  'items#purchase', as: 'purchase'
+      get  'done'=>      'items#done', as: 'done'
+      post 'pay'
     end
     member do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
+  resources :cards, only:[:new, :create] do
+    collection do
+      post 'done', to: 'cards#create'
+      get 'done'
     end
   end
 end

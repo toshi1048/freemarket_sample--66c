@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
   has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
   has_many :sns_credentials
+  has_many :cards
   
   accepts_nested_attributes_for :phone_number, :address, :card
 

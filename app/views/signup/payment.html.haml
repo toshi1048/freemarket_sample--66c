@@ -37,9 +37,26 @@
             %br/
             %input.input_default{name: "card_number", type: "number", placeholder: "半角数字のみ"}
 
-          -# クレジットカード有効期限
-          -# 内部実装してないため使えません。実装後こちら使用
-          -# != sprintf(f.date_select(:expiration_date,with_css_classes:'XXXXX', order:[:month,:year,:day], use_month_numbers:true, discard_day:true, start_year:Time.now.year-2000, end_year:Time.now.year-2000+10, date_separator:'%s'),'月') + '年'
+          .form_group
+            %ul.signup-card-list
+              %li
+                = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?1398199435',size: "49x20"
+              %li
+                = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?1398199435',size: "34x20"
+              %li
+                = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?1398199435',size: "30x20"
+              %li
+                = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?1398199435',size: "32x20"
+              %li
+                = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?1398199435',size: "21x20"
+              %li
+                = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?1398199435',size: "31x20"
+              %li
+                = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?1398199435',size: "31x20"
+
+            -# クレジットカード有効期限
+            -# 内部実装してないため使えません。実装後こちら使用
+           -# != sprintf(f.date_select(:expiration_date,with_css_classes:'XXXXX', order:[:month,:year,:day], use_month_numbers:true, discard_day:true, start_year:Time.now.year-2000, end_year:Time.now.year-2000+10, date_separator:'%s'),'月') + '年'
           .form_group
             %label
               有効期限

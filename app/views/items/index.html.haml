@@ -45,4 +45,7 @@
           = link_to item_path(item.id), class: "item_link" do
             .purchase-body__buy__btn
               購入する
+              = form_with url:pay_items_path do
+                :plain
+                  <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_f135870f88c553f1a568bcdb"></script>
   = render 'items/subfooter'

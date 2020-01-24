@@ -1,0 +1,11 @@
+.purchase-main
+  .purchase-header
+    .purchase-header__block
+      = render 'items/subheader'
+  .buy-item
+    .buy-item__body
+      .buy-item__centerbox__head
+        登録が完了しました
+        = link_to "トップページへ戻る", root_path, class: 'buy__centerbox__info__submit__button'
+  .single-footer
+    = render "items/subfooter"

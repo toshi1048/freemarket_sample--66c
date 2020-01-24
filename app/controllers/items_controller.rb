@@ -2,6 +2,9 @@ class ItemsController < ApplicationController
   before_action :set_category, only: [:new, :create, :edit, :update]
   before_action :set_item, only: [:edit, :update, :destroy]
 
+  require 'payjp'
+
+
   def index
     @item = Item.includes(:images)
 
@@ -66,6 +69,27 @@ class ItemsController < ApplicationController
     else 
       redirect_to item_path(item)
     end
+  end
+
+  def purchase
+  end
+
+
+  def pay
+    Payjp.api_key =ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+      amount: 450, # 決済する値段
+      card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
+      currency: 'jpy'
+    )
+    redirect_to action: :done
+  end
+
+
+  def done
+  end
+
+  def purchase
   end
 
 private
