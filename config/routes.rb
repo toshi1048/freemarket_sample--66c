@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
+    # post 'users', to: 'users/registrations#create_tel'
     post 'phone_numbers', to: 'users/registrations#create_tel'
     post 'addresses', to: 'users/registrations#create_address'
     post 'mycards', to: 'users/registrations#create_card'

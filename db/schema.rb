@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 2020_01_20_082605) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "zipcode"
-    t.string "prefecture"
-    t.string "first_address"
-    t.string "second_address"
+    t.string "zipcode", null: false
+    t.string "prefecture", null: false
+    t.string "first_address", null: false
+    t.string "second_address", null: false
     t.string "third_address"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 2020_01_20_082605) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "card_number"
-    t.integer "year"
-    t.integer "momth"
-    t.integer "security_number"
+    t.bigint "card_number", null: false
+    t.integer "year", null: false
+    t.integer "momth", null: false
+    t.integer "security_number", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2020_01_20_082605) do
   end
 
   create_table "phone_numbers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "phone_number", null: false
+    t.bigint "phone_number", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -102,14 +102,14 @@ ActiveRecord::Schema.define(version: 2020_01_20_082605) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "nickname"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "first_name_rattle"
-    t.string "last_name_rattle"
-    t.integer "birthyear"
-    t.integer "birthmonth"
-    t.integer "birthday"
+    t.string "nickname", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "first_name_rattle", null: false
+    t.string "last_name_rattle", null: false
+    t.integer "birthyear", null: false
+    t.integer "birthmonth", null: false
+    t.integer "birthday", null: false
     t.text "introduction"
     t.text "image"
     t.string "reset_password_token"

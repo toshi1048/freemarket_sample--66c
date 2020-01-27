@@ -63,9 +63,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.now[:alert] = @card.errors.full_messages
       render :new_card and return
     end
+    binding.pry
     @user.build_phone_number(@phone_number.attributes)
     @user.build_address(@address.attributes)
     @user.build_card(@card.attributes)
+    binding.pry
     @user.save
     sign_in(:user, @user)
     render :complete
