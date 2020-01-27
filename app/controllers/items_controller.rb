@@ -76,8 +76,6 @@ class ItemsController < ApplicationController
       card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
       currency: 'jpy'
     )
-    
-    # redirect_to action: :done
     redirect_to done_item_path(@item)
   end
 

@@ -62,7 +62,7 @@
                 ブランド
               %span
                 任意
-            =f.select :brand_id,[["シャネル",1], ["グッチ",2],  ["エルメス",3] ],prompt: "---",class: "sell__item-old"
+            =f.select :brand_id,[["シャネル",1], ["ルイヴィトン",2],  ["シュプリーム",3],["ナイキ",4], ["アディダス",5],  ["プーマ",6] ],prompt: "---",class: "sell__item-old"
             .sell__line
               %h3
                 商品の状態
@@ -111,15 +111,14 @@
                   必須
               .input__box
                 %text ¥
-                %input{placeholder: "例）300円", type: "nember",class:"item-price"}
+                =f.number_field :price, {placeholder: "例）300円", type: "nember",class:"item-price"}
             .sell__fee
               %p
                 販売手数料 (10%)
               .sell__fee--price
             .sell__profit
-              %p
+              %p{id: "price"}
                 販売利益
-              =f.number_field :price, style: "display: none", id: "price"
               .sell__profit--price
         .sell__form--submit
           %div
