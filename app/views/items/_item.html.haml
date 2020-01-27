@@ -21,9 +21,11 @@
                   = image_tag pic.image.url, data: { index: i }, width: "100", height: '100'
             = f.fields_for :images do |pic|
               .js-file_group{"data-index" => "#{pic.index}"}
-                = pic.file_field :image, class: 'js-file'
-                %br/
-                %span.js-remove 削除
+                = pic.label 'upload', class: 'js-file',for: 'submit-box' do
+                  =pic.file_field :image,id: 'submit-box'
+                  %pre.visible-pic
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
               - if @item.persisted?
                 = pic.check_box :_destroy, data:{ index: pic.index }, class: 'hidden-destroy'
             - if @item.persisted?

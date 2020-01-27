@@ -226,3 +226,48 @@
     }
   }
 }
+#image-box{
+  display: flex;
+  .js-file_group{
+    width: 620px;
+    .js-file{
+      background: #f5f5f5;
+      cursor: pointer;
+      padding: 40px;
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      min-height: 160px;
+      border: 1px dashed #ccc;
+      #submit-box{
+        display: none;
+      }
+  }
+}
+}
+#previews{
+  display: flex;
+}
+#image-box2{
+  display: flex;
+  .js-file_group2{
+    width: 620px;
+    .js-file2{
+      background: #f5f5f5;
+      cursor: pointer;
+      padding: 40px;
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      min-height: 160px;
+      border: 1px dashed #ccc;
+      #submit-box2{
+        display: none;
+      }
+  }
+}}
+#previews2{
+  display: flex;
+}
