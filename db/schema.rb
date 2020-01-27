@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2020_01_20_082605) do
   end
 
   create_table "phone_numbers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "phone_number", null: false
+    t.string "phone_number", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
