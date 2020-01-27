@@ -22,3 +22,7 @@ Brand.seed do |s|
   s.id = 6
   s.name = "プーマ"
 end
+Brand.seed do |s|
+  s.id = 7
+  s.name = "グッチ"
+end
