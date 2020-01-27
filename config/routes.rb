@@ -14,10 +14,17 @@ Rails.application.routes.draw do
 
   resources :signup,only:[:index]
 
-  resources :mypages,only:[:index,:edit] do
-    collection do
+  resources :users, only: [:show,:edit] do
+    member do
       get 'card'
       get 'signout'
+      get 'identification'
+    end
+  end
+
+
+  resources :mypages,only:[:index,:edit] do
+    collection do
       get 'identification'
       get 'edit'
     end

@@ -2,28 +2,28 @@ crumb :root do
   link "トップページ", root_path
 end
 
-crumb :mypages do
-  link "マイページ", mypages_path
+crumb :users do
+  link "ユーザー", user_path(current_user.id)
 end
 
 crumb :edit do
-  link "プロフィール", edit_mypages_path
-  parent :mypages
+  link "プロフィール", edit_user_path(current_user.id)
+  parent :users
 end
 
 crumb :card do
-  link "支払い方法", card_mypages_path
-  parent :mypages
+  link "支払い方法", card_user_path(current_user.id)
+  parent :users
 end
 
 crumb :identification do
-  link "本人情報の登録", identification_mypages_path
-  parent :mypages
+  link "本人情報の登録", identification_user_path(current_user.id)
+  parent :users
 end
 
 crumb :signout do
-  link "ログアウト", signout_mypages_path
-  parent :mypages
+  link "ログアウト", signout_user_path(current_user.id)
+  parent :users
 end
 # crumb :projects do
 #   link "Projects", projects_path

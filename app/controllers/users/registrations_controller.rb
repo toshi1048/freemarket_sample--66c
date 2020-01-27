@@ -32,11 +32,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.now[:alert] = @user.errors.full_messages
       render :new_tel and return
     end
-      session["phone_number"] = {phone_number: @phone_number.attributes}
-      session["phone_number"][:phone_number]= params[:phone_number]
-      @address = Address.new
-      render :new_address
-    end
+    session["phone_number"] = {phone_number: @phone_number.attributes}
+    session["phone_number"][:phone_number]= params[:phone_number]
+    @address = Address.new
+    render :new_address
+  end
 
   
   def create_address

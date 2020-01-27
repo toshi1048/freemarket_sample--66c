@@ -3,9 +3,8 @@
   - breadcrumb :signout
   = render "layouts/breadcrumbs"
 .user_page
-  .side_bar
-    = render 'shared/side_bar'
+  = render 'shared/side_bar'
   .mypage__sub__content
     %form.mypage__sub__content--form(action="")
       %button.mypage__sub__content--form--btn
-        ログアウト
+        = link_to 'ログアウト', destroy_user_session_path, method: :delete

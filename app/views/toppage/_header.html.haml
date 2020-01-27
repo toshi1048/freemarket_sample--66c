@@ -13,7 +13,8 @@
       .bottom__detail--brand
         %i.fas.fa-tags
         ブランドから探す
-      -# ログイン機能実装後コメントアウト外してください
+
+        
     - if user_signed_in?
       .bottom__sign--login
         %i.far.fa-heart
@@ -26,10 +27,8 @@
           やることリスト
       .bottom__sign--login
         %i.fas.fa-surprise
-          マイページ
-      .bottom__sign--login
-        %i.fas.fa-sign-out-alt
-          = link_to 'ログアウト', destroy_user_session_path, method: :delete
+          = link_to 'マイページ', user_path(current_user.id)
+
     - else
       .bottom__sign--up
         = link_to '新規会員登録',signup_index_path
