@@ -1,6 +1,6 @@
 .header
   = render 'toppage/header'
-  - breadcrumb :mypages
+  - breadcrumb :users
   = render "layouts/breadcrumbs"
 .user_page
   .side_bar
@@ -10,7 +10,7 @@
       .user_box__contents
         %img{src:"//static.mercdn.net/images/member_photo_noimage_thumb.png", width:"60",height:"60",style:"user-select: auto;"}
           %h2.user_box__contents__name
-            太郎
+            = @nickname
         .user_box__contents__info
           %h2.user_box__contents__info__evalution
             評価

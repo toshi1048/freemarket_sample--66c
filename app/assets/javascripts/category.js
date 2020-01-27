@@ -3,6 +3,7 @@ $(function(){
     var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
+
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
     childSelectHtml = `
@@ -20,6 +21,7 @@ $(function(){
                                 </select>`;
     $('.sell-category-box').append(grandchildSelectHtml);
   }
+
   $('#parent_category').on('change', function(){
     var parentCategory = document.getElementById('parent_category').value;
     if (parentCategory != "---"){

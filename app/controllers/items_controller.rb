@@ -1,14 +1,10 @@
 class ItemsController < ApplicationController
   before_action :set_category, only: [:new, :create, :edit, :update]
   before_action :set_item, only: [:edit, :update, :destroy, :purchase, :pay, :done]
+  before_action :move_to_root, except: [:show]
 
   require 'payjp'
 
-
-  def index
-    @item = Item.includes(:images)
-
-  end
 
   def new
     @item = Item.new
@@ -80,12 +76,14 @@ class ItemsController < ApplicationController
       card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
       currency: 'jpy'
     )
+    
     # redirect_to action: :done
     redirect_to done_item_path(@item)
   end
 
 
   def done
+    @item.update(buyer_id: current_user.id)
   end
 
 private
@@ -112,5 +110,9 @@ private
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def move_to_root
+    redirect_to root_path unless user_signed_in?
   end
 end

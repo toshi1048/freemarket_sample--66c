@@ -26,7 +26,7 @@
         .purchase-body__total2__method
           支払い方法
         .purchase-body__total2__register
-          = link_to card_mypages_path, class: "card_link" do
+          = link_to card_user_path(current_user.id), class: "card_link" do
             .purchase-body__total2__register__link__word
               登録してください
       .purchase-body__delivery
