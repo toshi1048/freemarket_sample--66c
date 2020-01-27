@@ -169,28 +169,55 @@
       = link_to "https://www.pinterest.com/", class: "contents__btn" do
         %i.fab.fa-pinterest
 
-.recommends
-  .recommends__user
-    .recommends__user__head
-      =link_to "#" do
-        = "#{@item.saler.nickname}さんのその他の出品"
-    .recommends__user__items
-      = 6.times do
-        = render partial: 'elseitems'
-  .recommends__user
-    .recommends__user__head
-      =link_to "#" do
-        シャネルのその他の商品
-    .recommends__user__items
-      = 6.times do
-        = render partial: 'elseitems'
-    .recommends__categories__items
-.bread-crumbs
-  %ul.bread-crumbs__box
-    %li
-      =link_to 'メルカリ'
-      %i.fas.fa-chevron-right
-    %li
-      =link_to 'イチゴ大福６個入り'
+/出品者に関する商品
+.other-items-container
+  .other-items-title
+    = link_to '#',class:"other-items-title__word link2" do
+      ="#{@item.saler.nickname}さんのその他の商品"
+    /商品一覧
+    .user-other-items
+      -@saler_items.each do |item|
+        .user-other-items__box
+          /1枚目の画像のみ表示
+          = link_to image_tag(item.images[0].image.url,size:'220x220',class:"user-other-items__box--image"),'#'
+          .user-other-items__box__body
+            .user-other-items__box__body--name
+              =item.name
+            /商品価格
+            .user-other-items__box__body--price.flex
+              ="¥#{@item.price}"
+              .item-button-container__left{id: "like-#{item.id}"}
+                .item-button-container__right
+                  %i.fas.fa-heart#show-hert-red
+                  %span 
+                    -# - if item.likes_count.present?
+                      -# = item.likes_count
+                    -# - else
+                      0
+        
+    /関連商品に関する出品
+.other-items-container
+  .other-items-title
+    = link_to '#',class:"other-items-title__word link2" do
+      ="#{@item.category}その他の商品"
+  .user-other-items
+    -@category_items.each do |item|
+      .user-other-items__box
+        /1枚目の画像のみ表示
+        = link_to image_tag(item.images[0].image.url,size:'220x220',class:"user-other-items__box--image")
+        .user-other-items__box__body
+          .user-other-items__box__body--name
+            =item.name
+          /商品価格
+          .user-other-items__box__body--price.flex
+            ="¥#{@item.price}"
+            .item-button-container__left{id: "like-#{item.id}"}
+              .item-button-container__right
+                %i.fas.fa-heart#show-hert-red
+                %span 
+                  -# - if item.likes_count.present?
+                    -# = item.likes_count
+                  -# - else
+                    0
 
 = render 'toppage/footer'

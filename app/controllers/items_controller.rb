@@ -52,6 +52,8 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @images = @item.images
+    @saler_items = Item.where(saler: @item.saler).limit(6)
+    @category_items = Item.where(category: @item.category).limit(6)
   end
 
   def edit
