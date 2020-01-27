@@ -1,0 +1,107 @@
+.main{
+  margin:auto;
+  .header{
+    text-align: center;
+  }
+  .signin_main{
+    text-align: center;
+    width:456px;
+    height:100%;
+    margin:auto;
+    background-color: #fff;
+    padding: 24px 32px;
+    &__content{
+      &__box{
+        border-bottom:1px solid ;
+        margin-bottom:24px;
+        &__sign_up{
+          font-size:14px;
+        }
+        &__btn{
+          width:100%;
+          height:42px;
+          background-color:#0099E8;
+          margin-top:8px;
+          line-height:42px;
+          text-align: center;
+          .sign_up_box{
+            color: #fff;
+          }
+        }
+
+      }
+      &__infomation{
+        padding:24px  0 0 0;
+        &__login{
+          width:100%;
+          height:100%;
+          .login_btn{
+            width:100%;
+            height:50px;
+            margin-top:24px;
+            background-color: #EA352D;
+            color: #fff;
+            text-align: center;
+            line-height:50px;
+          }
+        }
+        &__coment{
+          height:100%;
+          width:100%;
+          font-size:14px;
+          margin-top:40px;
+          text-align:left;
+          .forget_pass{
+            display: block;
+            line-height:14px;
+            color: #0099E8;
+          }
+        }
+        
+      }
+    }
+  }
+  .facebook_link{
+    height:50px;
+    width:100%;
+    background-color:#385185;
+    line-height:50px;
+    text-align:center;
+    margin-bottom: 16px;
+    position: relative;
+    .facebook_btn{
+      color: #fff;
+    }
+    .fa-facebook-f{
+      line-height:50px;
+      position: absolute;
+      left:20px;
+      color: #fff;
+    }
+  }
+  .google_link{
+    height:50px;
+    width:100%;
+    border:1px solid black ;
+    line-height:50px;
+    text-align:center;
+    margin-bottom: 16px;
+    position: relative;
+    .fa-google{
+      line-height:50px;
+      position: absolute;
+      left:10px;
+      width:26px;
+      height:26px;
+    }
+  }
+  .mail_input{
+    width:100%;
+    height:48px;
+  }
+  .password_input{
+    width:100%;
+    height:48px;
+    margin-top:24px;
+  }
+}
