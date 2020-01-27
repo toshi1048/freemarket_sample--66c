@@ -10,11 +10,6 @@ $(document).on("ready",function(){
     return html;
   }
 
-
-
-
-
-
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
     const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
