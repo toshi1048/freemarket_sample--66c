@@ -103,6 +103,13 @@
             電話番号の確認
             %i.fas.fa-chevron-right
         %li
+<<<<<<< Updated upstream
           = link_to "#",class: "nav_item"  do
             ログアウト
             %i.fas.fa-chevron-right
+=======
+          = link_to  signout_user_path(current_user.id) do
+            ログアウト
+            %i.fas.fa-chevron-right 
+              
+>>>>>>> Stashed changes
