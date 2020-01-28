@@ -32,7 +32,6 @@
       -# 入力フォーム中身書き換え
     .MemberInformationInput__content
       .MemberInformationInput__content--form
-        %form{action: "", method: "post"}
         = form_for(@user, url: user_registration_path) do |f|
           = render "devise/shared/error_messages", resource: @user
           -# ニックネーム入力
