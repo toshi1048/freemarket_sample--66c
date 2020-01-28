@@ -200,21 +200,22 @@
     /関連商品に関する出品
 .other-items-container
   .other-items-title
-    = link_to '#' ,class:"other-items-title__word link2" do
-      ="#{@item.brand.name}のその他商品"
-    .user-other-items
-      -@brand_items.each do |item|
-        .user-other-items__box
-          /1枚目の画像のみ表示
-          = link_to image_tag(item.images[0].image.url,size:'220x220',class:"user-other-items__box--image"),item_path(item)
-          .user-other-items__box__body
-            .user-other-items__box__body--name
-              =item.name
-            /商品価格
-            .user-other-items__box__body--price.flex
-              ="¥#{item.price}"
-              .item-button-container__left{id: "like-#{item.id}"}
-                .item-button-container__right
-                  %i.fas.fa-heart#show-hert-red
+    - if @item.brand
+      = link_to '#' ,class:"other-items-title__word link2" do
+        ="#{@item.brand.name}のその他商品"
+      .user-other-items
+        -@brand_items.each do |item|
+          .user-other-items__box
+            /1枚目の画像のみ表示
+            = link_to image_tag(item.images[0].image.url,size:'220x220',class:"user-other-items__box--image"),item_path(item)
+            .user-other-items__box__body
+              .user-other-items__box__body--name
+                =item.name
+              /商品価格
+              .user-other-items__box__body--price.flex
+                ="¥#{item.price}"
+                .item-button-container__left{id: "like-#{item.id}"}
+                  .item-button-container__right
+                    %i.fas.fa-heart#show-hert-red
 
 = render 'toppage/footer'
