@@ -22,10 +22,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @phone_number = @user.build_phone_number
     @address = @user.build_address
     @card = @user.build_card
-    render :new_tel
+    redirect_to :phone_number_path
   end
 
   def create_tel
+    binding.pry
     @user = User.new(session["devise.regist_data"]["user"])
     @phone_number = PhoneNumber.new(tel_params)
     unless @phone_number.valid?
