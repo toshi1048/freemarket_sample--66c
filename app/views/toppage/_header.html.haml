@@ -14,24 +14,24 @@
         %i.fas.fa-tags
         ブランドから探す
 
-        
-    - if user_signed_in?
-      .bottom__sign--login
-        %i.far.fa-heart
-          いいね！一覧
-      .bottom__sign--login
-        %i.far.fa-bell
-          お知らせ
-      .bottom__sign--login
-        %i.fas.fa-check
-          やることリスト
-      .bottom__sign--login
-        %i.fas.fa-surprise
-          = link_to 'マイページ', user_path(current_user.id)
+    .bottom__user
+      - if user_signed_in?
+        .bottom__sign--login
+          %i.far.fa-heart
+            いいね！一覧
+        .bottom__sign--login
+          %i.far.fa-bell
+            お知らせ
+        .bottom__sign--login
+          %i.fas.fa-check
+            やることリスト
+        .bottom__sign--login
+          %i.fas.fa-surprise
+            = link_to 'マイページ', user_path(current_user.id)
 
-    - else
-      .bottom__sign--up
-        = link_to '新規会員登録',signup_index_path
-      .bottom__sign--in
-        = link_to 'ログイン', new_user_session_path
-      
+      - else
+        .bottom__sign--up
+          = link_to '新規会員登録',signup_index_path
+        .bottom__sign--in
+          = link_to 'ログイン', new_user_session_path
+        
