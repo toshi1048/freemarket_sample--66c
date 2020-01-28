@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
   validates :nickname, :first_name, :last_name, :first_name_rattle, presence: true
+  validates :encrypted_password, length: {minimum: 7}
   has_one :phone_number
   has_one :address
   has_one :card

@@ -65,6 +65,12 @@
       }
     }
   }   
+  .bottom__user{
+
+    display: flex;
+    justify-content: space-around;
+    height: 30px;
+  }
   &__sign{
   display: flex;
   justify-content: space-around;
@@ -89,10 +95,8 @@
       
     }
   }
-}
     &--in{
     background-color: rgb(255, 255, 255);
-    color: rgb(0, 149, 238);
     display: block;
     font-size: 14px;
     border-width: 1px;
@@ -102,13 +106,13 @@
     padding: 5px 10px;
     a{
       text-decoration: none;
-      color: white;
+      color: rgb(0, 149, 238);
     }
     &--login {
     margin-left: 5px;
-
     }
   }
+}
 }
 
 .wrapper{
@@ -225,7 +229,7 @@ footer{
   color: rgb(255, 255, 255);
   padding: 0px 20px 10px;
   background: rgb(33, 33, 33);
-  height: 360px;
+  height: 400px;
   margin: auto;
   .footer-main{
     display: flex;
