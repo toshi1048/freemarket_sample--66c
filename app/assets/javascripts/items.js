@@ -12,8 +12,8 @@ $(document).on("ready",function(){
   
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
-    const html = `<div class="img_wrapper"><img data-index="${index}" src="${url}" width="120px" height="100px">
-    <div class="js-remove">削除</div></div>`;
+    const html = `<img data-index="${index}" src="${url}" width="120px" height="100px">
+    <div class="js-remove">削除</div>`;
     return html;
   }
 
